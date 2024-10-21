@@ -1,0 +1,1 @@
+sudo python ArduCam_Ext_Trigger_Demo.py tr.cfg

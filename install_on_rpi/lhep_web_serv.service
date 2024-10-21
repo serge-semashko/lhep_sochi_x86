@@ -1,0 +1,12 @@
+[Service]
+# Даем знать systemd, что этот сервис представляет из себя лишь 1 процесс. Man page хорошо описывает доступные опции.
+Type=oneshot
+# Выполнить эту команду при запуске сервиса.
+ExecStart=/home/ubuntu/ard_lhep/runweb.sh
+WorkingDirectory=/home/ubuntu/ard_lhep
+[Unit]
+Description=web service for lhep 
+Requires=memcached.service
+After=memcached.service
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Service]
+# Даем знать systemd, что этот сервис представляет из себя лишь 1 процесс. Man page хорошо описывает доступные опции.
+Type=oneshot
+# Выполнить эту команду при запуске сервиса.
+ExecStart=/home/ubuntu/ard_lhep/run.sh
+WorkingDirectory=/home/ubuntu/ard_lhep
+[Unit]
+Description=make shot by trigger
+Requires=memcached.service
+After=memcached.service
+Requires=shot_by_signal.service 
+After=shot_by_signal.service 
+[Install]
+WantedBy=multi-user.target

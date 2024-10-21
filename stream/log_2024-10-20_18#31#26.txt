@@ -1,0 +1,2 @@
+test
+testwrCapture began, rtn_val =  0

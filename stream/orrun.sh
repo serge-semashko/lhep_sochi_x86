@@ -1,0 +1,1 @@
+sudo python orig.py 1.cfg

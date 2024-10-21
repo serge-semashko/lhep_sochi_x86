@@ -1,0 +1,2 @@
+#sudo pip install RPIO  --break-system-packages
+sudo apt-get install  python3-rpi.gpio

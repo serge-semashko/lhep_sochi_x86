@@ -1,0 +1,10 @@
+sudo apt-get install  python3-rpi.gpio
+chmod +x ./configure_udev_rules.sh
+./configure_udev_rules.sh
+pip install arducam_config_parser ArducamSDK --break-system-packages
+pip install opencv-python numpy --break-system-packages
+git clone https://github.com/ArduCAM/ArduCAM_USB_Camera_Shield_Python_Demo.git
+sudo apt install memcached libmemcached-tools
+pip install pymemcache --break-system-packages
+sudo systemctl start memcached
+
