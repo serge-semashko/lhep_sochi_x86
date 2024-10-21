@@ -5,6 +5,7 @@ import traceback
 import json
 import time
 import threading 
+
 from pymemcache.client.base import Client
 import os
 from os import listdir
@@ -13,6 +14,8 @@ from flask import Flask
 from flask import make_response
 from procshot import *
 tm = time.gmtime()
+if not os.path.exists("images"):
+    os.makedirs("images")
 
 file_name = 'log'+str(tm.tm_year) + '-' + str(tm.tm_mon) + '-' + str(tm.tm_mday) + '_' + str(tm.tm_hour) + '#' + str(tm.tm_min) + '#'+ str(tm.tm_sec)+'.txt'
 logging.basicConfig(level=logging.INFO, filename=file_name,filemode="w",
@@ -115,9 +118,10 @@ def del_frames():
 def get_index():
     try:
         file_name = 'frames_brightness.html' 
-        ff = open(file_name, 'r')
+        ff = open(file_name, 'r',encoding='utf-8',)
         bin = ff.read()
-        print(bin)
+        print(str(bin))
+        # bin = bin.decode('cp1251').encode('utf8')
         resp = make_response(bin, 200)
         print(bin)
         print(resp)
@@ -140,7 +144,7 @@ def get_index():
 @app.route('/get_frames_list', methods=['GET'])
 def get_frames_list():
     try:
-        flist = listdir('.')
+        flist = listdir('./images')
         logging.info(" Get frame list. all files \n%s"%(str(flist)))
 
         rez_arr = []
@@ -179,7 +183,7 @@ def get_frame():
     print("connect 1" + inprm)
     try:
         file_name = params['file']
-        ff = open(file_name, 'rb')
+        ff = open('images/'+file_name, 'rb')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -205,7 +209,7 @@ def get_file():
     print("connect 1" + inprm)
     try:
         file_name = params['file']
-        ff = open(file_name, 'r')
+        ff = open('images/'+file_name, 'r')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -255,7 +259,7 @@ def get_oneshot():
 def get_all_shots():
     print("connect")
     import subprocess
-    process = subprocess.Popen('zip all_arch 202*.*', shell=True, stdout=subprocess.PIPE)
+    process = subprocess.Popen('zip all_arch images/*', shell=True, stdout=subprocess.PIPE)
     process.wait()
     print(process.returncode)
     file_name = 'all_arch.zip'
@@ -284,7 +288,7 @@ def get_all_shots():
 def get_shot(file_name):
     print("connect")
     try:
-        ff = open(file_name, 'rb')
+        ff = open('images/'+file_name, 'rb')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -306,7 +310,7 @@ def process_shots():
     while 1==1:
         try:
             a=1
-            flist = listdir('.')
+            flist = listdir('./images')
             # print(str(flist))
             for i in flist:
                 if i[-3:] != 'png':
@@ -324,11 +328,12 @@ def process_shots():
                 if i in files_ok:
                     continue
                 # print(i)
-                fname = i.split('.')[0]
+                fname ='./images/'+ i.split('.')[0]
                 if os.path.isfile(fname+'-bar.png') and os.path.isfile(fname+'-barh.png') and  os.path.isfile(fname+'-markup.png') and os.path.isfile(fname+'.txt'):
                     continue
                 time0=time.time()
-                process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, i, w1, w2, w3)
+                print(i, fname)
+                process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname +'.png', w1, w2, w3)
                 files_ok.append(i)    
                 print('processed(%.1f sec) %s'%(time.time()-time0,i))
             time.sleep(1)

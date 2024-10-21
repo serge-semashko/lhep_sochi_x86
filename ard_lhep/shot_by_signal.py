@@ -10,6 +10,9 @@ from Arducam import *
 from ImageConvert import *
 import time
 import os
+if not os.path.exists("images"):
+    os.makedirs("images")
+
 #import gpiozero as gp
 #btn = gp.DigitalInputDevice("BOARD15",pull_up=True)
 
@@ -354,13 +357,13 @@ while(True):
         h1 = image.shape[0]
         frame = image
         print(str(ret_val)+' '+"%dX%d"%(w1,h1) ) #+str(frame)
-        tm = time.gmtime()
-        file_name = str(tm.tm_year) + '_' + str(tm.tm_mon) + '_' + str(tm.tm_mday) + '-' + str(tm.tm_hour)+'_' + str(tm.tm_min)+ '_' + str(tm.tm_sec)+  '-' + '%.5d'%(run_num) + '-' +  str(br)
+        tm = time.localtime()
+        file_name = '%.4d_%.2d_%.2d'%(tm.tm_year, tm.tm_mon, tm.tm_mday) + '-' +  '%.2d_%.2d_%.2d'%(tm.tm_hour, tm.tm_min, tm.tm_sec)+ '-' + '%.5d'%(run_num) + '-' +  str(br)
         image1 = cv2.resize(frame,(640,480),interpolation = cv2.INTER_LINEAR)
         # cv2.imshow('tmp.png', image1)
-        cv2.imwrite('tmp.png', frame)
-        os.rename('tmp.png',file_name+'.png')
-        cv2.imwrite(file_name+'.png', frame)
+        cv2.imwrite('images/tmp.png', frame)
+        os.rename('images/tmp.png','images/'+file_name+'.png')
+        # cv2.imwrite(file_name+'.png', frame)
         
         print(file_name)
         if flag == 0:

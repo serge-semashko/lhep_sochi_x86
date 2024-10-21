@@ -26,7 +26,8 @@ def getsr(piece_coord, rect):
 
 def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_center, thick_cm, thick_5mm):
     import matplotlib.pyplot as plt
-
+    filename_only = filename[:-4]
+    print('file=',filename_only)
     img = cv2.imread(filename)
     # print(img.shape)
     img = img[yu:yd+1, xl:xr+1]
@@ -149,7 +150,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         qtbl += '<td>'+str(min)+'</td><td>'+str(max)+'</td><td>%.2f'%(uni)+'</td><td>%.2f'%(np.mean(bwt)) + '</td><td>%.2f'%(np.std(bwt))
         
         qtbl +='</td><td>(%.2f, %.2f)'%(mcol, mrow)+'</td></tr>'
-    file = open(filename.split('.')[0]+'_tbl.html', 'w')
+
+    file = open(filename_only+'_tbl.html', 'w')
     file.write(qtbl)        
     file.close()        
         
@@ -223,7 +225,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     plt.bar(x, xinfo, width=0.5)
     # fig.suptitle('Распределение по X')
     # plt.savefig(sys.argv[1].split('.')[0]+'-hist.png')
-    plt.savefig(filename.split('.')[0] + '-bar.png')
+    plt.savefig(filename_only + '-bar.png')
     plt.clf()
 
     fig, ax = plt.subplots()
@@ -240,7 +242,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     # plt.gca().xaxis.set_major_locator(plt.NullLocator())
     # plt.gca().yaxis.set_major_locator(plt.NullLocator())
 
-    plt.savefig(filename.split('.')[0] + '-barh.png')
+    plt.savefig(filename_only + '-barh.png')
     plt.clf()
     # print(time.time()-t1);
 
@@ -268,10 +270,10 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     # for i in range(center_y, yd, range_mm):
     #     cv2.line(img, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
 
-    cv2.imwrite(filename.split('.')[0] + '-markup.png', img)
+    cv2.imwrite(filename_only + '-markup.png', img)
     # print(img.shape)
     rezmatr = rezmatr.transpose()
-    file = open(filename.split('.')[0]+'.txt', 'w')
+    file = open(filename_only+'.txt', 'w')
     resstr = ''
     cm = ndimage.center_of_mass(rezmatr)
     min = np.min(rezmatr)
@@ -301,7 +303,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     file.write(resstr)
     # file.write(str(rezmatr))
     file.close()
-    file = open(filename.split('.')[0]+'.html', 'w')
+    file = open(filename_only+'.html', 'w')
     file.write(restbl)
     file.close()
 

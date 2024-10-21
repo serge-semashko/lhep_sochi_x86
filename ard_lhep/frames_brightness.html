@@ -3,7 +3,7 @@
 
 <head>
     
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>LumiView v1.75</title>
     <style>
     .content .left {
@@ -37,14 +37,14 @@ var dloc;
  <div class=content>
      <div class=left>
         <h1>
-            <a style="color:white" target = "_blank" href = "/get_all_shots">???? ?? ???</a>
+            <a style="color:white" target = "_blank" href = "/get_all_shots">Загрузить всю историю</a>
         </h1>
 
-        <div> <input type = "text" id = "br"> <input type = "button" value = "????" onclick = "sendBr()"> <br>
+        <div> <input type = "text" id = "br"> <input type = "button" value = "Яркость" onclick = "sendBr()"> <br>
         <i id=last_name>aaaaa</i>
    </div>
      
-        <div> <input type = "button" value = "???? ???" onclick = "delFr()"></div>
+        <!-- <div> <input type = "button" value = "???? ???" onclick = "delFr()"></div> -->
                 <div id = 'rezult' style="height: 900px; overflow-y: auto;" ></div>
 
     </div>
@@ -120,7 +120,7 @@ function refresh_list(){
         let data_rez = JSON.parse(res);
         console.log(data_rez);
         console.log(typeof(data_rez));
-        let rez_tabl = '<table class = "tab_1" id = "frame_tabl"><tr><th>???? ???</th><th>???? ??</th></tr><tbody>';
+        let rez_tabl = '<table class = "tab_1" id = "frame_tabl"><tr><th>Название кадра</th><th>Показать кадр</th></tr><tbody>';
         let lastsrc='';    
         for (let i = 0; i < data_rez.length; i++){
             if (i == 0){

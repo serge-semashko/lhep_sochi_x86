@@ -1,0 +1,465 @@
+2024-10-21 22:55:42,140 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:88
+ * Running on http://10.108.128.122:88
+2024-10-21 22:55:42,140 INFO [33mPress CTRL+C to quit[0m
+2024-10-21 22:55:56,319 INFO 127.0.0.1 - - [21/Oct/2024 22:55:56] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:00,371 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:00,371 INFO  Get frame list result
+[]
+2024-10-21 22:56:00,372 INFO 127.0.0.1 - - [21/Oct/2024 22:56:00] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:04,369 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:04,369 INFO  Get frame list result
+[]
+2024-10-21 22:56:04,370 INFO 127.0.0.1 - - [21/Oct/2024 22:56:04] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:09,019 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:09,024 INFO  Get frame list result
+[]
+2024-10-21 22:56:09,029 INFO 127.0.0.1 - - [21/Oct/2024 22:56:09] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:13,018 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:13,024 INFO  Get frame list result
+[]
+2024-10-21 22:56:13,029 INFO 127.0.0.1 - - [21/Oct/2024 22:56:13] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:17,024 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:17,029 INFO  Get frame list result
+[]
+2024-10-21 22:56:17,034 INFO 127.0.0.1 - - [21/Oct/2024 22:56:17] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:20,988 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:20,989 INFO  Get frame list result
+[]
+2024-10-21 22:56:20,989 INFO 127.0.0.1 - - [21/Oct/2024 22:56:20] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:24,990 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:24,990 INFO  Get frame list result
+[]
+2024-10-21 22:56:24,990 INFO 127.0.0.1 - - [21/Oct/2024 22:56:24] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:29,009 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:29,009 INFO  Get frame list result
+[]
+2024-10-21 22:56:29,009 INFO 127.0.0.1 - - [21/Oct/2024 22:56:29] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:29,013 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:29,017 INFO  Get frame list result
+[]
+2024-10-21 22:56:29,022 INFO 127.0.0.1 - - [21/Oct/2024 22:56:29] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:32,990 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:32,990 INFO  Get frame list result
+[]
+2024-10-21 22:56:32,991 INFO 127.0.0.1 - - [21/Oct/2024 22:56:32] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:37,026 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:37,026 INFO  Get frame list result
+[]
+2024-10-21 22:56:37,033 INFO 127.0.0.1 - - [21/Oct/2024 22:56:37] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:40,042 INFO 127.0.0.1 - - [21/Oct/2024 22:56:40] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:41,566 INFO 127.0.0.1 - - [21/Oct/2024 22:56:41] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:42,232 INFO 127.0.0.1 - - [21/Oct/2024 22:56:42] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:42,716 INFO 127.0.0.1 - - [21/Oct/2024 22:56:42] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:42,954 INFO 127.0.0.1 - - [21/Oct/2024 22:56:42] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:43,155 INFO 127.0.0.1 - - [21/Oct/2024 22:56:43] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:46,778 INFO 127.0.0.1 - - [21/Oct/2024 22:56:46] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:47,392 INFO 127.0.0.1 - - [21/Oct/2024 22:56:47] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:47,711 INFO 127.0.0.1 - - [21/Oct/2024 22:56:47] "GET / HTTP/1.1" 200 -
+2024-10-21 22:56:51,723 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:51,724 INFO  Get frame list result
+[]
+2024-10-21 22:56:51,724 INFO 127.0.0.1 - - [21/Oct/2024 22:56:51] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:55,725 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:55,725 INFO  Get frame list result
+[]
+2024-10-21 22:56:55,725 INFO 127.0.0.1 - - [21/Oct/2024 22:56:55] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:56:59,725 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:56:59,725 INFO  Get frame list result
+[]
+2024-10-21 22:56:59,725 INFO 127.0.0.1 - - [21/Oct/2024 22:56:59] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:03,724 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:03,724 INFO  Get frame list result
+[]
+2024-10-21 22:57:03,724 INFO 127.0.0.1 - - [21/Oct/2024 22:57:03] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:07,724 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:07,724 INFO  Get frame list result
+[]
+2024-10-21 22:57:07,725 INFO 127.0.0.1 - - [21/Oct/2024 22:57:07] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:11,724 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:11,724 INFO  Get frame list result
+[]
+2024-10-21 22:57:11,724 INFO 127.0.0.1 - - [21/Oct/2024 22:57:11] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:15,724 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:15,724 INFO  Get frame list result
+[]
+2024-10-21 22:57:15,724 INFO 127.0.0.1 - - [21/Oct/2024 22:57:15] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:19,724 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:19,725 INFO  Get frame list result
+[]
+2024-10-21 22:57:19,725 INFO 127.0.0.1 - - [21/Oct/2024 22:57:19] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:23,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:23,983 INFO  Get frame list result
+[]
+2024-10-21 22:57:23,983 INFO 127.0.0.1 - - [21/Oct/2024 22:57:23] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:27,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:27,983 INFO  Get frame list result
+[]
+2024-10-21 22:57:27,983 INFO 127.0.0.1 - - [21/Oct/2024 22:57:27] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:28,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:28,986 INFO  Get frame list result
+[]
+2024-10-21 22:57:28,986 INFO 127.0.0.1 - - [21/Oct/2024 22:57:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:31,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:31,986 INFO  Get frame list result
+[]
+2024-10-21 22:57:31,986 INFO 127.0.0.1 - - [21/Oct/2024 22:57:31] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:35,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:35,983 INFO  Get frame list result
+[]
+2024-10-21 22:57:35,983 INFO 127.0.0.1 - - [21/Oct/2024 22:57:35] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:39,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:39,984 INFO  Get frame list result
+[]
+2024-10-21 22:57:39,985 INFO 127.0.0.1 - - [21/Oct/2024 22:57:39] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:43,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:43,984 INFO  Get frame list result
+[]
+2024-10-21 22:57:43,984 INFO 127.0.0.1 - - [21/Oct/2024 22:57:43] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:47,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:47,983 INFO  Get frame list result
+[]
+2024-10-21 22:57:47,983 INFO 127.0.0.1 - - [21/Oct/2024 22:57:47] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:51,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:51,984 INFO  Get frame list result
+[]
+2024-10-21 22:57:51,984 INFO 127.0.0.1 - - [21/Oct/2024 22:57:51] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:55,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:55,984 INFO  Get frame list result
+[]
+2024-10-21 22:57:55,984 INFO 127.0.0.1 - - [21/Oct/2024 22:57:55] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:57:59,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:57:59,983 INFO  Get frame list result
+[]
+2024-10-21 22:57:59,983 INFO 127.0.0.1 - - [21/Oct/2024 22:57:59] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:03,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:03,983 INFO  Get frame list result
+[]
+2024-10-21 22:58:03,984 INFO 127.0.0.1 - - [21/Oct/2024 22:58:03] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:07,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:07,983 INFO  Get frame list result
+[]
+2024-10-21 22:58:07,983 INFO 127.0.0.1 - - [21/Oct/2024 22:58:07] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:11,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:11,983 INFO  Get frame list result
+[]
+2024-10-21 22:58:11,983 INFO 127.0.0.1 - - [21/Oct/2024 22:58:11] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:15,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:15,983 INFO  Get frame list result
+[]
+2024-10-21 22:58:15,983 INFO 127.0.0.1 - - [21/Oct/2024 22:58:15] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:19,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:19,984 INFO  Get frame list result
+[]
+2024-10-21 22:58:19,984 INFO 127.0.0.1 - - [21/Oct/2024 22:58:19] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:28,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:28,986 INFO  Get frame list result
+[]
+2024-10-21 22:58:28,986 INFO 127.0.0.1 - - [21/Oct/2024 22:58:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:58:28,992 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:58:28,992 INFO  Get frame list result
+[]
+2024-10-21 22:58:28,993 INFO 127.0.0.1 - - [21/Oct/2024 22:58:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:59:28,988 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:59:28,988 INFO  Get frame list result
+[]
+2024-10-21 22:59:28,988 INFO 127.0.0.1 - - [21/Oct/2024 22:59:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 22:59:28,994 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 22:59:28,995 INFO  Get frame list result
+[]
+2024-10-21 22:59:28,995 INFO 127.0.0.1 - - [21/Oct/2024 22:59:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:28,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:28,986 INFO  Get frame list result
+[]
+2024-10-21 23:00:28,987 INFO 127.0.0.1 - - [21/Oct/2024 23:00:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:28,994 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:28,994 INFO  Get frame list result
+[]
+2024-10-21 23:00:28,995 INFO 127.0.0.1 - - [21/Oct/2024 23:00:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:40,613 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:40,613 INFO  Get frame list result
+[]
+2024-10-21 23:00:40,613 INFO 127.0.0.1 - - [21/Oct/2024 23:00:40] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:43,724 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:43,725 INFO  Get frame list result
+[]
+2024-10-21 23:00:43,725 INFO 127.0.0.1 - - [21/Oct/2024 23:00:43] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:44,370 INFO 127.0.0.1 - - [21/Oct/2024 23:00:44] "GET / HTTP/1.1" 200 -
+2024-10-21 23:00:46,626 INFO 127.0.0.1 - - [21/Oct/2024 23:00:46] "GET / HTTP/1.1" 200 -
+2024-10-21 23:00:50,638 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:50,639 INFO  Get frame list result
+[]
+2024-10-21 23:00:50,639 INFO 127.0.0.1 - - [21/Oct/2024 23:00:50] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:54,639 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:54,639 INFO  Get frame list result
+[]
+2024-10-21 23:00:54,639 INFO 127.0.0.1 - - [21/Oct/2024 23:00:54] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:00:58,641 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:00:58,641 INFO  Get frame list result
+[]
+2024-10-21 23:00:58,641 INFO 127.0.0.1 - - [21/Oct/2024 23:00:58] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:02,639 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:02,639 INFO  Get frame list result
+[]
+2024-10-21 23:01:02,639 INFO 127.0.0.1 - - [21/Oct/2024 23:01:02] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:06,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:06,983 INFO  Get frame list result
+[]
+2024-10-21 23:01:06,983 INFO 127.0.0.1 - - [21/Oct/2024 23:01:06] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:10,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:10,983 INFO  Get frame list result
+[]
+2024-10-21 23:01:10,983 INFO 127.0.0.1 - - [21/Oct/2024 23:01:10] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:14,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:14,983 INFO  Get frame list result
+[]
+2024-10-21 23:01:14,983 INFO 127.0.0.1 - - [21/Oct/2024 23:01:14] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:18,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:18,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:18,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:18] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:22,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:22,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:22,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:22] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:26,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:26,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:26,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:26] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:28,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:28,986 INFO  Get frame list result
+[]
+2024-10-21 23:01:28,987 INFO 127.0.0.1 - - [21/Oct/2024 23:01:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:30,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:30,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:30,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:30] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:34,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:34,983 INFO  Get frame list result
+[]
+2024-10-21 23:01:34,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:34] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:38,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:38,983 INFO  Get frame list result
+[]
+2024-10-21 23:01:38,983 INFO 127.0.0.1 - - [21/Oct/2024 23:01:38] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:42,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:42,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:42,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:42] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:46,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:46,983 INFO  Get frame list result
+[]
+2024-10-21 23:01:46,983 INFO 127.0.0.1 - - [21/Oct/2024 23:01:46] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:50,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:50,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:50,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:50] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:54,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:54,985 INFO  Get frame list result
+[]
+2024-10-21 23:01:54,985 INFO 127.0.0.1 - - [21/Oct/2024 23:01:54] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:01:58,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:01:58,984 INFO  Get frame list result
+[]
+2024-10-21 23:01:58,984 INFO 127.0.0.1 - - [21/Oct/2024 23:01:58] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:02,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:02,983 INFO  Get frame list result
+[]
+2024-10-21 23:02:02,983 INFO 127.0.0.1 - - [21/Oct/2024 23:02:02] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:11,141 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:11,141 INFO  Get frame list result
+[]
+2024-10-21 23:02:11,142 INFO 127.0.0.1 - - [21/Oct/2024 23:02:11] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:12,991 INFO 127.0.0.1 - - [21/Oct/2024 23:02:12] "GET / HTTP/1.1" 200 -
+2024-10-21 23:02:13,998 INFO 127.0.0.1 - - [21/Oct/2024 23:02:13] "GET / HTTP/1.1" 200 -
+2024-10-21 23:02:18,025 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:18,026 INFO  Get frame list result
+[]
+2024-10-21 23:02:18,026 INFO 127.0.0.1 - - [21/Oct/2024 23:02:18] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:20,264 INFO 127.0.0.1 - - [21/Oct/2024 23:02:20] "GET / HTTP/1.1" 200 -
+2024-10-21 23:02:24,296 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:24,297 INFO  Get frame list result
+[]
+2024-10-21 23:02:24,297 INFO 127.0.0.1 - - [21/Oct/2024 23:02:24] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:28,298 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:28,298 INFO  Get frame list result
+[]
+2024-10-21 23:02:28,298 INFO 127.0.0.1 - - [21/Oct/2024 23:02:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:28,988 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:28,988 INFO  Get frame list result
+[]
+2024-10-21 23:02:28,988 INFO 127.0.0.1 - - [21/Oct/2024 23:02:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:32,297 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:32,297 INFO  Get frame list result
+[]
+2024-10-21 23:02:32,297 INFO 127.0.0.1 - - [21/Oct/2024 23:02:32] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:36,297 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:36,297 INFO  Get frame list result
+[]
+2024-10-21 23:02:36,298 INFO 127.0.0.1 - - [21/Oct/2024 23:02:36] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:40,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:40,984 INFO  Get frame list result
+[]
+2024-10-21 23:02:40,984 INFO 127.0.0.1 - - [21/Oct/2024 23:02:40] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:44,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:44,984 INFO  Get frame list result
+[]
+2024-10-21 23:02:44,985 INFO 127.0.0.1 - - [21/Oct/2024 23:02:44] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:48,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:48,984 INFO  Get frame list result
+[]
+2024-10-21 23:02:48,984 INFO 127.0.0.1 - - [21/Oct/2024 23:02:48] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:52,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:52,984 INFO  Get frame list result
+[]
+2024-10-21 23:02:52,984 INFO 127.0.0.1 - - [21/Oct/2024 23:02:52] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:02:56,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:02:56,984 INFO  Get frame list result
+[]
+2024-10-21 23:02:56,984 INFO 127.0.0.1 - - [21/Oct/2024 23:02:56] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:00,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:00,987 INFO  Get frame list result
+[]
+2024-10-21 23:03:00,987 INFO 127.0.0.1 - - [21/Oct/2024 23:03:00] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:04,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:04,983 INFO  Get frame list result
+[]
+2024-10-21 23:03:04,983 INFO 127.0.0.1 - - [21/Oct/2024 23:03:04] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:08,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:08,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:08,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:08] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:12,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:12,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:12,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:12] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:16,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:16,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:16,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:16] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:20,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:20,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:20,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:20] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:24,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:24,983 INFO  Get frame list result
+[]
+2024-10-21 23:03:24,983 INFO 127.0.0.1 - - [21/Oct/2024 23:03:24] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:28,986 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:28,986 INFO  Get frame list result
+[]
+2024-10-21 23:03:28,987 INFO 127.0.0.1 - - [21/Oct/2024 23:03:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:28,992 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:28,992 INFO  Get frame list result
+[]
+2024-10-21 23:03:28,992 INFO 127.0.0.1 - - [21/Oct/2024 23:03:28] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:32,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:32,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:32,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:32] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:36,983 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:36,983 INFO  Get frame list result
+[]
+2024-10-21 23:03:36,983 INFO 127.0.0.1 - - [21/Oct/2024 23:03:36] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:40,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:40,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:40,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:40] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:44,995 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:44,995 INFO  Get frame list result
+[]
+2024-10-21 23:03:44,995 INFO 127.0.0.1 - - [21/Oct/2024 23:03:44] "GET /get_frames_list HTTP/1.1" 200 -
+2024-10-21 23:03:48,984 INFO  Get frame list. all files 
+['1.cfg', 'Arducam.py', 'brightness_cycled.py', 'c3.py', 'cam1.py', 'cam2.py', 'csi4.py', 'frames_brightness.html', 'fr_serv.py', 'ImageConvert.py', 'images', 'last_br.txt', 'log2024-10-21_19#47#46.txt', 'log2024-10-21_19#55#42.txt', 'one_shot.html', 'pi.py', 'procshot-dev.py', 'procshot.py', 'rr.bat', 'rw.bat', 'shm.py', 'shm1.py', 'shot_by_signal.py', 'utils.py', 'v41.py', 'wrshut.py', '__pycache__']
+2024-10-21 23:03:48,984 INFO  Get frame list result
+[]
+2024-10-21 23:03:48,984 INFO 127.0.0.1 - - [21/Oct/2024 23:03:48] "GET /get_frames_list HTTP/1.1" 200 -
