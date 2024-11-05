@@ -66,8 +66,31 @@ var dloc;
                 <td id="table_stat" style="color:white">
 
                 </td>
-                </tr>
-                   </table>
+            </tr>
+
+
+
+
+            <tr>
+                <td>
+                <img id=last_jpg_5 height=211  src="http://"+hostname+"/get_frame?file=last.png" style="padding:20px 0px 0px 30px">
+                </td><td>
+                    <img id=barh_jpg_5 height=250 src="http://"+hostname+"/get_frame?file=last.png">
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <img id=bar_jpg_5 width=370  height=150 src="http://"+hostname+"/get_frame?file=last.png">
+                </td>
+                <td id="table_stat_5" style="color:white">
+                </td>
+            </tr>
+            
+            
+
+
+            </table>
     </div>        
 
 </div>    
@@ -79,7 +102,7 @@ window.onload = function () {
     if (dloc.hostname.length < 3) {
         hostname = "localhost";
     } else {
-        hostname = dloc.hostname+':88';
+        hostname = dloc.host;
     }
 
 }
@@ -139,9 +162,17 @@ function refresh_list(){
         console.log(lastsrc.split('.')[0]);
 
         let mark = lastsrc.split('.')[0]+'-markup.png';
+        let mark_5 = lastsrc.split('.')[0]+'-5mm.png';
+        let mark_1 = lastsrc.split('.')[0]+'-1mm.png';
         document.getElementById('last_jpg').src="http://"+hostname+"/get_frame?file=" +mark;
+        document.getElementById('last_jpg_5').src="http://"+hostname+"/get_frame?file=" +mark_5;
+
+
+
         document.getElementById('barh_jpg').src="http://"+hostname+"/get_frame?file=" +lastsrc.split('.')[0]+'-barh.png';;
         document.getElementById('bar_jpg').src="http://"+hostname+"/get_frame?file=" +lastsrc.split('.')[0]+'-bar.png';;
+
+
  //       document.getElementById('last_jpg').update();
         document.getElementById('last_name').innerHTML=lastsrc[1];
         load_table(lastsrc.split('.')[0]);

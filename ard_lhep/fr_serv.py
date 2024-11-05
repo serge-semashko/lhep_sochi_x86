@@ -1,5 +1,5 @@
 import sys
-import logging
+# import logging
 import base64
 import traceback
 import json
@@ -17,9 +17,9 @@ tm = time.gmtime()
 if not os.path.exists("images"):
     os.makedirs("images")
 
-file_name = 'log'+str(tm.tm_year) + '-' + str(tm.tm_mon) + '-' + str(tm.tm_mday) + '_' + str(tm.tm_hour) + '#' + str(tm.tm_min) + '#'+ str(tm.tm_sec)+'.txt'
-logging.basicConfig(level=logging.INFO, filename=file_name,filemode="w",
-                    format="%(asctime)s %(levelname)s %(message)s")
+# file_name = 'log'+str(tm.tm_year) + '-' + str(tm.tm_mon) + '-' + str(tm.tm_mday) + '_' + str(tm.tm_hour) + '#' + str(tm.tm_min) + '#'+ str(tm.tm_sec)+'.txt'
+# logging.basicConfig(level=logging.INFO, filename=file_name,filemode="w",
+#                     format="%(asctime)s %(levelname)s %(message)s")
 
 app = Flask(__name__)
 client = Client(('127.0.0.1', 11211))
@@ -145,7 +145,7 @@ def get_index():
 def get_frames_list():
     try:
         flist = listdir('./images')
-        logging.info(" Get frame list. all files \n%s"%(str(flist)))
+        # logging.info(" Get frame list. all files \n%s"%(str(flist)))
 
         rez_arr = []
         for i in flist:
@@ -154,7 +154,7 @@ def get_frames_list():
                     continue
                 rez_arr.append(i)
         rez_arr.sort(reverse=True)
-        logging.info(" Get frame list result\n%s"%(str(rez_arr)))
+        # logging.info(" Get frame list result\n%s"%(str(rez_arr)))
         rr = str(rez_arr).replace('\'', '\"')
 #        print(json.dumps(rr))
         resp = make_response(json.dumps(rr), 200)
@@ -175,33 +175,40 @@ def get_frames_list():
 
 @app.route('/get_frame', methods=['GET'])
 def get_frame():
-    print("connect")
+    print("connect get frame")
     params = {}
     for i in request.args:
         params[str(i)] = request.args[i]
     inprm = str(params)
-    print("connect 1" + inprm)
-    try:
-        file_name = params['file']
-        ff = open('images/'+file_name, 'rb')
-        bin = ff.read()
-        resp = make_response(bin, 200)
-    except Exception as e:
-        exc_type, exc_value, exc_traceback = sys.exc_info()
-        print("*** print_tb:")
-        traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
-        print("*** format_exc, first and last line:")
-        res_data = traceback.format_exc().splitlines()
-        print(res_data)
-        resp = make_response(res_data, 400)
+    print("parm=" + inprm)
+    # try:
+    file_name = 'images/'+params['file']
+    print('open '+str(file_name))
+    ff = open(file_name, 'rb')
+    bin = ff.read()
+    print('str(bin)')
+    print(str(bin))
+    ff.close()
+    resp = make_response(bin, 200)
+    # except Exception as e:
+    #     exc_type, exc_value, exc_traceback = sys.exc_info()
+    #     print("*** print_tb:")
+    #     traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
+    #     print("*** format_exc, first and last line:")
+    #     res_data = traceback.format_exc().splitlines()
+    #     print(res_data)
+    #     resp = make_response(res_data, 400)
     resp.headers['content-type'] = 'image/png'
     resp.headers['Access-Control-Allow-Origin'] = '*'
     resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     return resp
 
+def ret_color(mean):
+    return (mean// 3, mean// 3,mean// 3 )
+
 @app.route('/get_file', methods=['GET'])
 def get_file():
-    print("connect")
+    print("connect get_file")
     params = {}
     for i in request.args:
         params[str(i)] = request.args[i]
@@ -209,7 +216,7 @@ def get_file():
     print("connect 1" + inprm)
     try:
         file_name = params['file']
-        ff = open('images/'+file_name, 'r')
+        ff = open('images\\'+file_name, 'r')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -253,13 +260,13 @@ def get_oneshot():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     return resp
-
+# "storage-driver": "/dev/sdb1"
 
 @app.route('/get_all_shots', methods=['GET'])
 def get_all_shots():
     print("connect")
     import subprocess
-    process = subprocess.Popen('zip all_arch images/*', shell=True, stdout=subprocess.PIPE)
+    process = subprocess.Popen('zip all_arch images\\*', shell=True, stdout=subprocess.PIPE)
     process.wait()
     print(process.returncode)
     file_name = 'all_arch.zip'
@@ -288,7 +295,7 @@ def get_all_shots():
 def get_shot(file_name):
     print("connect")
     try:
-        ff = open('images/'+file_name, 'rb')
+        ff = open('images\\'+file_name, 'rb')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -316,6 +323,10 @@ def process_shots():
                 if i[-3:] != 'png':
                     continue
                 # print(i)
+                if not i[len(i)-5].isnumeric():
+                    continue
+                
+
                 if i[:3] !='202':
                         continue
                 # print(i)
@@ -328,7 +339,7 @@ def process_shots():
                 if i in files_ok:
                     continue
                 # print(i)
-                fname ='./images/'+ i.split('.')[0]
+                fname ='images/'+ i.split('.')[0]
                 if os.path.isfile(fname+'-bar.png') and os.path.isfile(fname+'-barh.png') and  os.path.isfile(fname+'-markup.png') and os.path.isfile(fname+'.txt'):
                     continue
                 time0=time.time()
@@ -348,6 +359,6 @@ def process_shots():
 
 pro_shots  = threading.Thread(target=process_shots, args=(),daemon=False)
 pro_shots.start()
-app.run(debug=False, host="0.0.0.0", port=88)
+app.run(debug=True, host="0.0.0.0", port=88)
 
 
