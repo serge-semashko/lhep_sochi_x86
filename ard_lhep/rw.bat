@@ -1,1 +1,1 @@
-start python fr_serv.py
+python procshot.py lumi.png
