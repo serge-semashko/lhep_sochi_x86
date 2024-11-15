@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-import matplotlib
 import pathlib
 import os
+import matplotlib
 matplotlib.use('agg')
 import cv2
 from scipy import ndimage
@@ -16,7 +16,7 @@ def get_color(mean):
 
 def getpiececoords(x_piece_range, y_piece_range, center_x, center_y, yu, xl, yd ,xr):
 
-    # print([yu + y_piece_range * 0 - yu, xl + x_piece_range * 5 - xl], [yu + y_piece_range * (0 + 1) - 1 - yu, xl + x_piece_range * (5 + 1) - 1 - xl])
+    print([yu + y_piece_range * 0 - yu, xl + x_piece_range * 5 - xl], [yu + y_piece_range * (0 + 1) - 1 - yu, xl + x_piece_range * (5 + 1) - 1 - xl])
 
     pieces = []
 
@@ -128,11 +128,10 @@ def getsr(piece_coord, rect):
 
 def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_center, thick_cm, thick_5mm, mark=1):
     import matplotlib.pyplot as plt
-    plt.rcParams.update({'font.size': 16})
-    onlyname = os.path.dirname(filename)+'/'+pathlib.Path(filename).stem;
-    print('onlyname '+onlyname)
-    # os.path.dirname(f.name)
+
     img = cv2.imread(filename)
+    onlyname = os.path.dirname(filename)+'/'+pathlib.Path(filename).stem;
+
     # print(img.shape)
     img = img[yu:yd+1, xl:xr+1]
     # print(img.shape)
@@ -147,11 +146,11 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
     fin_width = math.trunc(img.shape[1] * kx)
     fin_height = math.trunc(img.shape[0] * ky)
-    # print('shape1 ', img.shape)
+    print('shape1 ', img.shape)
     dim = (fin_width, fin_height)
 
     img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
-    # print('shape1 ', img.shape)
+    print('shape1 ', img.shape)
 
     # print(img.shape)
     # print(time.time()-t1);
@@ -165,7 +164,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     yu = 0
     yd = img.shape[0]
 
-    # print('------------------', xr, yd, '---------------------')
+    print('------------------', xr, yd, '---------------------')
 
     center_x = (xl + xr) // 2
     center_y = (yu + yd) // 2
@@ -191,7 +190,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     pmm_y = math.trunc(yrange / ydlin)
     range_cm = math.trunc(pmm * 10)
     range_mm = math.trunc(pmm * 5)
-    # print('pix/cm x=%d y=%d'%(math.trunc(pmm_x * 10), math.trunc(pmm_y * 10)))
+    print('pix/cm x=%d y=%d'%(math.trunc(pmm_x * 10), math.trunc(pmm_y * 10)))
 
     ################################VOVA
     # 1cmХ1cm - range_cm
@@ -201,16 +200,16 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     # Матрица в картинку 
     # ячейка окрашена в цвет градиент - пока в сумму /3
 
-    # print(yrange, range_cm)
+    print(yrange, range_cm)
 
     # nx0 = math.trunc(xrange / (range_cm * 5))
     # ny0 = math.trunc(yrange / (range_cm * 5))
 
     pieces_0, nx0, ny0 = getpiececoords(range_cm * 5, range_cm * 5, center_x, center_y, yu, xl, yd, xr)
 
-    # print(len(pieces_0))
+    print(len(pieces_0))
 
-    # print(nx0, ny0)
+    print(nx0, ny0)
 
     rezmatr0 = np.zeros([ny0, nx0, 3], dtype=int)
 
@@ -218,7 +217,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     rmax0 = 0
 
     for i in range(len(pieces_0)):
-        # print(pieces_0[i])
+        print(pieces_0[i])
         sr = getsrminmax(pieces_0[i], rabrect)
 
         if rmin0 > sr[0]:
@@ -229,29 +228,35 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezy = i // nx0
         rezx = i % nx0
 
-        # print(ny0, rezy, rezx, rezmatr0.shape, len(pieces_0))
+        print(ny0, rezy, rezx, rezmatr0.shape, len(pieces_0))
 
         rezmatr0[rezy][rezx] = sr
 
-    # print('=================================rezmatr0=====================================')
-    # print(rezmatr0)
-    # print()
-    # f = open('rezmatr_5cm.txt', 'w')
-    # if rmax0 > 0:
-    #     ravn = ((rmax0 - rmin0) / rmax0)
-    # else:
-    #     ravn = 1
-    # f.write('Равномерность - ' + str(ravn) + '\n')
-    # f.write(str(rezmatr0))
-    # f.close()
+    print('=================================rezmatr0=====================================')
+    print(rezmatr0)
+    print()
+    f = open('rezmatr_5cm.txt', 'w',encoding='utf-8')
+    if rmax0 > 0:
+        ravn = ((rmax0 - rmin0) / rmax0)
+    else:
+        ravn = 1
+    f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f.write('[')
+    for j in range(rezmatr0.shape[0]):
+        f.write('[')
+        for i in range(rezmatr0.shape[1]):
+            f.write('[' + str(rezmatr0[j][i][0]) + ', ' + str(rezmatr0[j][i][1]) + ', ' + str(rezmatr0[j][i][2]) + '],')
+        f.write('],')
+    f.write(']')
+    f.close()
 
     rezimg0 = np.zeros([yrange, xrange, 3], dtype=int)
 
-    # print(rezimg0.shape)
+    print(rezimg0.shape)
     for i in range(rezmatr0.shape[1]):
         for j in range(rezmatr0.shape[0]):
             sr0 = get_color(rezmatr0[j][i][1])
-            # print(sr0)
+            print(sr0)
 
             p_i = nx0 * j + i
             p = pieces_0[p_i]
@@ -260,15 +265,14 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
             yd0 = p[1][0]
             xr0 = p[1][1]
 
-            # print(yu0, yd0, xl0, xr0)
+            print(yu0, yd0, xl0, xr0)
 
             for a in range(yu0, yd0):
                 for b in range(xl0, xr0):
                     rezimg0[a][b] = sr0
     cv2.line(rezimg0, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(rezimg0, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
-    
-    cv2.imwrite(onlyname + '-5cm.png', rezimg0)
+    cv2.imwrite(onlyname +  '-5cm.png', rezimg0)
 
     # nx1 = math.trunc(xrange / range_cm)
     # nx2 = math.trunc(xrange / range_mm)
@@ -282,11 +286,11 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     pieces_2, nx2, ny2 = getpiececoords(range_mm, range_mm, center_x, center_y, yu, xl, yd, xr)
     pieces_3, nx3, ny3 = getpiececoords(pmm_x, pmm_y, center_x, center_y, yu, xl, yd, xr)
 
-    # print('=======================================')
-    # print(nx1, ny1)
-    # print(nx2, ny2)
-    # print(nx3, ny3)
-    # print('=======================================')
+    print('=======================================')
+    print(nx1, ny1)
+    print(nx2, ny2)
+    print(nx3, ny3)
+    print('=======================================')
 
     # for i in pieces_1:
     #     print(i[0], i[1])
@@ -302,7 +306,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
     rezmatr1 = np.zeros([ny1, nx1, 3], dtype=int)
     for i in range(len(pieces_1)):
-        # print(pieces_1[i])
+        print(pieces_1[i])
         sr = getsrminmax(pieces_1[i], rabrect)
 
         rezy = i // nx1
@@ -317,22 +321,28 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
         rezmatr1[rezy][rezx] = sr
 
-    # print('=================================rezmatr1=====================================')
-    # print(rezmatr1)
-    # print()
+    print('=================================rezmatr1=====================================')
+    print(rezmatr1)
+    print()
 
-    f = open(onlyname+'_1cm.dat', 'w')
+    f = open('rezmatr_1cm.txt', 'w',encoding='utf-8')
     if rmax1 > 0:
         ravn = ((rmax1 - rmin1) / rmax1)
     else:
         ravn = 1
-    f.write('Равномерность - ' + str(ravn) + '\n')
-    f.write(str(rezmatr1))
+    f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f.write('[')
+    for j in range(rezmatr1.shape[0]):
+        f.write('[')
+        for i in range(rezmatr1.shape[1]):
+            f.write('[' + str(rezmatr1[j][i][0]) + ', ' + str(rezmatr1[j][i][1]) + ', ' + str(rezmatr1[j][i][2]) + '],')
+        f.write('],')
+    f.write(']')
     f.close()
 
     rezimg1 = np.zeros([yrange, xrange, 3], dtype=int)
 
-    # print(rezimg1.shape)
+    print(rezimg1.shape)
 
     for i in range(rezmatr1.shape[1]):
         for j in range(rezmatr1.shape[0]):
@@ -355,7 +365,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     cv2.line(rezimg1, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
 
     if mark == 1:
-        # print('marking 1 cm')
+        print('marking 1 cm')
         for i in range(center_x, xl, -1 * range_cm):
             cv2.line(rezimg1, (i, yu), (i, yd), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_x, xr, range_cm):
@@ -366,7 +376,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         for i in range(center_y, yd, range_cm):
             cv2.line(rezimg1, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
 
-    cv2.imwrite(onlyname+'-1cm.png', rezimg1)
+    cv2.imwrite(onlyname +'-1cm.png', rezimg1)
 
     rmin2 = 10000000000000000000
     rmax2 = 0
@@ -387,22 +397,28 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
         rezmatr2[rezy][rezx] = sr
 
-    # print('=================================rezmatr2=====================================')
-    # print(rezmatr2)
-    # print()
+    print('=================================rezmatr2=====================================')
+    print(rezmatr2)
+    print()
 
-    f = open(onlyname+'_5mm.dat', 'w')
+    f = open('rezmatr_5mm.txt', 'w',encoding='utf-8')
     if rmax2 > 0:
         ravn = ((rmax2 - rmin2) / rmax2)
     else:
         ravn = 1
-    f.write('Равномерность - ' + str(ravn) + '\n')
-    f.write(str(rezmatr2))
+    f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f.write('[')
+    for j in range(rezmatr2.shape[0]):
+        f.write('[')
+        for i in range(rezmatr2.shape[1]):
+            f.write('[' + str(rezmatr2[j][i][0]) + ', ' + str(rezmatr2[j][i][1]) + ', ' + str(rezmatr2[j][i][2]) + '],')
+        f.write('],')
+    f.write(']')
     f.close()
 
     rezimg2 = np.zeros([yrange, xrange, 3], dtype=int)
 
-    # print(rezimg2.shape)
+    print(rezimg2.shape)
     for i in range(rezmatr2.shape[1]):
         for j in range(rezmatr2.shape[0]):
             sr2 = get_color(rezmatr2[j][i][1])
@@ -423,7 +439,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     cv2.line(rezimg2, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(rezimg2, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
     if mark == 1:
-        # print('marking 5mm')
+        print('marking 5mm')
         for i in range(center_x, xl, -1 * range_mm):
             cv2.line(rezimg2, (i, yu), (i, yd), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_x, xr, range_mm):
@@ -433,7 +449,41 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
             cv2.line(rezimg2, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_y, yd, range_mm):
             cv2.line(rezimg2, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
-    cv2.imwrite(onlyname+'-5mm.png', rezimg2)
+    cv2.imwrite(onlyname +'-5mm.png', rezimg2)
+
+    xinfo2 = []
+    for i in range(rezmatr2.shape[1]):
+        s = 0
+        for j in range(rezmatr2.shape[0]):
+            s += rezmatr2[j][i][1]
+        xinfo2.append(s // rezmatr2.shape[0])
+
+    yinfo2 = []
+    for j in range(rezmatr2.shape[0]):
+        s2 = 0
+        k2 = 0
+        for i in range(rezmatr2.shape[1]):
+            s2 += rezmatr2[j][i][1]
+            k2 += 1
+        yinfo2.append(s2 // k2)
+    x = [((i - nx2 / 2)) for i in range(nx2)]
+    y = [((i - ny2 / 2)) for i in range(ny2)]
+
+    plt.bar(x, xinfo2, width=0.5)
+    plt.savefig(filename.split('.')[0] + '-5mm-bar.png')
+    plt.clf()
+
+    fig, ax = plt.subplots()
+
+    print(y, yinfo2, ny2, rezmatr2.shape)
+
+    ax.barh(y, yinfo2, height=0.5)
+    ax.invert_yaxis()
+
+
+    plt.savefig(filename.split('.')[0] + '-5mm-barh.png')
+    plt.clf()
+
 
     rmin3 = 10000000000000000000
     rmax3 = 0
@@ -452,22 +502,28 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
         rezmatr3[rezy][rezx] = sr
 
-    # print('=================================rezmatr3=====================================')
-    # print(rezmatr3)
-    # print()
+    print('=================================rezmatr3=====================================')
+    print(rezmatr3)
+    print()
 
-    f = open(onlyname+'_1mm.dat', 'w')
+    f = open('rezmatr_1mm.txt', 'w',encoding='utf-8')
     if rmax3 > 0:
         ravn = ((rmax3 - rmin3) / rmax3)
     else:
         ravn = 1
-    f.write('Равномерность - ' + str(ravn) + '\n')
-    f.write(str(rezmatr3))
+    f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f.write('[')
+    for j in range(rezmatr3.shape[0]):
+        f.write('[')
+        for i in range(rezmatr3.shape[1]):
+            f.write('[' + str(rezmatr3[j][i][0]) + ', ' + str(rezmatr3[j][i][1]) + ', ' + str(rezmatr3[j][i][2]) + '],')
+        f.write('],')
+    f.write(']')
     f.close()
 
     rezimg3 = np.zeros([yrange, xrange, 3], dtype=int)
 
-    # print(rezimg3.shape)
+    print(rezimg3.shape)
     for i in range(rezmatr3.shape[1]):
         for j in range(rezmatr3.shape[0]):
             sr3 = get_color(rezmatr3[j][i][1])
@@ -488,7 +544,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     cv2.line(rezimg3, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(rezimg3, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
     if mark == 1:
-        # print('marking 1 mm')
+        print('marking 1 mm')
         for i in range(center_x, xl, -1 * pmm_y):
             cv2.line(rezimg3, (i, yu), (i, yd), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_x, xr, pmm_y):
@@ -498,7 +554,37 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
             cv2.line(rezimg3, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_y, yd, pmm_y):
             cv2.line(rezimg3, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
-    cv2.imwrite(onlyname+'-1mm.png', rezimg3)
+    cv2.imwrite(onlyname +'-1mm.png', rezimg3)
+
+    xinfo3 = []
+    for i in range(rezmatr3.shape[1]):
+        s = 0
+        for j in range(rezmatr3.shape[0]):
+            s += rezmatr3[j][i][1]
+        xinfo3.append(s // rezmatr3.shape[0])
+
+    yinfo3 = []
+    for j in range(rezmatr3.shape[0]):
+        s3 = 0
+        k3 = 0
+        for i in range(rezmatr3.shape[1]):
+            s3 += rezmatr3[j][i][1]
+            k3 += 1
+        yinfo3.append(s3 // k3)
+    x = [((i - nx3 / 2)) for i in range(nx3)]
+    y = [((i - ny3 / 2)) for i in range(ny3)]
+
+    plt.bar(x, xinfo3, width=0.5)
+    plt.savefig(filename.split('.')[0] + '-1mm-bar.png')
+    plt.clf()
+
+    fig, ax = plt.subplots()
+
+    ax.barh(y, yinfo3, height=0.5)
+    ax.invert_yaxis()
+
+    plt.savefig(filename.split('.')[0] + '-1mm-barh.png')
+    plt.clf()
 
     x_piece_range = math.trunc(xrange / nx)
     y_piece_range = math.trunc(yrange / ny)
@@ -553,7 +639,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         qtbl += '<td>'+str(min)+'</td><td>'+str(max)+'</td><td>%.2f'%(uni)+'</td><td>%.2f'%(np.mean(bwt)) + '</td><td>%.2f'%(np.std(bwt))
         
         qtbl +='</td><td>(%.2f, %.2f)'%(mcol, mrow)+'</td></tr>'
-    file = open(onlyname+'_tbl.html', 'w')
+    file = open(filename.split('.')[0]+'_tbl.html', 'w',encoding='utf-8')
     file.write(qtbl)        
     file.close()        
         
@@ -627,7 +713,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     plt.bar(x, xinfo, width=0.5)
     # fig.suptitle('Распределение по X')
     # plt.savefig(sys.argv[1].split('.')[0]+'-hist.png')
-    plt.savefig(onlyname + '-bar.png')
+    plt.savefig(filename.split('.')[0] + '-bar.png')
     plt.clf()
 
     fig, ax = plt.subplots()
@@ -644,7 +730,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     # plt.gca().xaxis.set_major_locator(plt.NullLocator())
     # plt.gca().yaxis.set_major_locator(plt.NullLocator())
 
-    plt.savefig(onlyname + '-barh.png')
+    plt.savefig(filename.split('.')[0] + '-barh.png')
     plt.clf()
     # print(time.time()-t1);
 
@@ -672,10 +758,10 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     # for i in range(center_y, yd, range_mm):
     #     cv2.line(img, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
 
-    cv2.imwrite(onlyname + '-markup.png', img)
+    cv2.imwrite(filename.split('.')[0] + '-markup.png', img)
     # print(img.shape)
     rezmatr = rezmatr.transpose()
-    file = open(onlyname+'.txt', 'w')
+    file = open(filename.split('.')[0]+'.txt', 'w',encoding='utf-8')
     resstr = ''
     cm = ndimage.center_of_mass(rezmatr)
     min = np.min(rezmatr)
@@ -705,7 +791,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     file.write(resstr)
     # file.write(str(rezmatr))
     file.close()
-    file = open(onlyname+'.html', 'w')
+    file = open(filename.split('.')[0]+'.html', 'w',encoding='utf-8')
     file.write(restbl)
     file.close()
 
@@ -718,7 +804,7 @@ yu=358
 xr=800
 yd=600
 x_len=80
-y_len=60
+y_len=57
 x_tab=8
 y_tab=6
 w1=4
@@ -739,5 +825,5 @@ if __name__ == "__main__":
 
     t1 = time.time()
 
-    print('rezult -', process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, imname, w1, w2, w3, mark=1))
+    print('rezult -', process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, imname, w1, w2, w3, mark))
     print(time.time()-t1);
