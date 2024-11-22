@@ -24,7 +24,7 @@ if not os.path.exists("images"):
 app = Flask(__name__)
 client = Client(('127.0.0.1', 11211))
 if os.path.isfile('last_br.txt'):
-    fbr = open('last_br.txt', 'r')
+    fbr = open('last_br.txt', 'r',encoding='utf-8')
      
     b = int(fbr.readlines()[0])
     client = Client(('127.0.0.1', 11211))
@@ -37,7 +37,7 @@ else:
     fbr.write(str(br))
     fbr.close()
 
-print(b)
+# print(b)
 
 
 
@@ -118,7 +118,7 @@ def del_frames():
 def get_index():
     try:
         file_name = 'frames_brightness.html' 
-        ff = open(file_name, 'r',encoding='utf-8',)
+        ff = open(file_name, 'r',encoding='utf-8')
         bin = ff.read()
         print(str(bin))
         # bin = bin.decode('cp1251').encode('utf8')
@@ -216,7 +216,7 @@ def get_file():
     print("connect 1" + inprm)
     try:
         file_name = params['file']
-        ff = open('images\\'+file_name, 'r')
+        ff = open('images\\'+file_name, 'r',encoding='utf-8')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -244,9 +244,9 @@ def get_oneshot():
         file_name = params['file']
         shot_src = file_name.split('.')[0]
         file_name = 'one_shot.html'
-        ff = open(file_name, 'r')
+        ff = open(file_name, 'r',encoding='utf-8')
         bin = ff.read()
-        bin = bin%(shot_src);
+        bin = bin%(shot_src)
         resp = make_response(bin, 200)
     except Exception as e:
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -344,7 +344,7 @@ def process_shots():
                     continue
                 time0=time.time()
                 print(i, fname)
-                process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname +'.png', w1, w2, w3)
+                process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname +'.png', w1, w2, w3, )
                 files_ok.append(i)    
                 print('processed(%.1f sec) %s'%(time.time()-time0,i))
             time.sleep(1)

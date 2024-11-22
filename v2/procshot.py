@@ -202,6 +202,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
     print(yrange, range_cm)
 
+    f_all = open(onlyname + '-all_matr.txt', 'w', encoding='utf-8')
+
     # nx0 = math.trunc(xrange / (range_cm * 5))
     # ny0 = math.trunc(yrange / (range_cm * 5))
 
@@ -235,20 +237,27 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     print('=================================rezmatr0=====================================')
     print(rezmatr0)
     print()
-    f = open('rezmatr_5cm.txt', 'w',encoding='utf-8')
+    f = open(onlyname + '-rezmatr_5cm.txt', 'w',encoding='utf-8')
     if rmax0 > 0:
         ravn = ((rmax0 - rmin0) / rmax0)
     else:
         ravn = 1
     f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f_all.write('var rezmatr5cm = [')
     f.write('[')
     for j in range(rezmatr0.shape[0]):
         f.write('[')
+        f_all.write('[')
         for i in range(rezmatr0.shape[1]):
             f.write('[' + str(rezmatr0[j][i][0]) + ', ' + str(rezmatr0[j][i][1]) + ', ' + str(rezmatr0[j][i][2]) + '],')
+            f_all.write('[' + str(rezmatr0[j][i][0]) + ', ' + str(rezmatr0[j][i][1]) + ', ' + str(rezmatr0[j][i][2]) + '],')
         f.write('],')
+        f_all.write('],')
     f.write(']')
+    f_all.write('];\n')
     f.close()
+
+    f_all.write('var rezmatr5cm_coord = ' + str(pieces_0) + ';\n')
 
     rezimg0 = np.zeros([yrange, xrange, 3], dtype=int)
 
@@ -325,20 +334,27 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     print(rezmatr1)
     print()
 
-    f = open('rezmatr_1cm.txt', 'w',encoding='utf-8')
+    f = open(onlyname + '-rezmatr_1cm.txt', 'w',encoding='utf-8')
     if rmax1 > 0:
         ravn = ((rmax1 - rmin1) / rmax1)
     else:
         ravn = 1
     f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f_all.write('var rezmatr1cm = [')
     f.write('[')
     for j in range(rezmatr1.shape[0]):
         f.write('[')
+        f_all.write('[')
         for i in range(rezmatr1.shape[1]):
             f.write('[' + str(rezmatr1[j][i][0]) + ', ' + str(rezmatr1[j][i][1]) + ', ' + str(rezmatr1[j][i][2]) + '],')
+            f_all.write('[' + str(rezmatr1[j][i][0]) + ', ' + str(rezmatr1[j][i][1]) + ', ' + str(rezmatr1[j][i][2]) + '],')
         f.write('],')
+        f_all.write('],')
     f.write(']')
+    f_all.write('];\n')
     f.close()
+
+    f_all.write('var rezmatr1cm_coord = ' + str(pieces_1) + ';\n')
 
     rezimg1 = np.zeros([yrange, xrange, 3], dtype=int)
 
@@ -401,20 +417,27 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     print(rezmatr2)
     print()
 
-    f = open('rezmatr_5mm.txt', 'w',encoding='utf-8')
+    f = open(onlyname + '-rezmatr_5mm.txt', 'w',encoding='utf-8')
     if rmax2 > 0:
         ravn = ((rmax2 - rmin2) / rmax2)
     else:
         ravn = 1
     f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f_all.write('var rezmatr5mm = [')
     f.write('[')
     for j in range(rezmatr2.shape[0]):
         f.write('[')
+        f_all.write('[')
         for i in range(rezmatr2.shape[1]):
             f.write('[' + str(rezmatr2[j][i][0]) + ', ' + str(rezmatr2[j][i][1]) + ', ' + str(rezmatr2[j][i][2]) + '],')
+            f_all.write('[' + str(rezmatr2[j][i][0]) + ', ' + str(rezmatr2[j][i][1]) + ', ' + str(rezmatr2[j][i][2]) + '],')
         f.write('],')
+        f_all.write('],')
     f.write(']')
+    f_all.write('];\n')
     f.close()
+
+    f_all.write('var rezmatr5mm_coord = ' + str(pieces_2) + ';\n')
 
     rezimg2 = np.zeros([yrange, xrange, 3], dtype=int)
 
@@ -506,21 +529,29 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     print(rezmatr3)
     print()
 
-    f = open('rezmatr_1mm.txt', 'w',encoding='utf-8')
+    f = open(onlyname + '-rezmatr_1mm.txt', 'w',encoding='utf-8')
     if rmax3 > 0:
         ravn = ((rmax3 - rmin3) / rmax3)
     else:
         ravn = 1
     f.write(u'Равномерность - ' + str(ravn) + '\n')
+    f_all.write('var rezmatr1mm = [')
     f.write('[')
     for j in range(rezmatr3.shape[0]):
         f.write('[')
+        f_all.write('[')
         for i in range(rezmatr3.shape[1]):
             f.write('[' + str(rezmatr3[j][i][0]) + ', ' + str(rezmatr3[j][i][1]) + ', ' + str(rezmatr3[j][i][2]) + '],')
+            f_all.write('[' + str(rezmatr3[j][i][0]) + ', ' + str(rezmatr3[j][i][1]) + ', ' + str(rezmatr3[j][i][2]) + '],')
         f.write('],')
+        f_all.write('],')
     f.write(']')
+    f_all.write('];\n')
     f.close()
 
+    f_all.write('var rezmatr1mm_coord = ' + str(pieces_3) + ';\n')
+
+    f_all.close()
     rezimg3 = np.zeros([yrange, xrange, 3], dtype=int)
 
     print(rezimg3.shape)
