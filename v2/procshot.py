@@ -845,7 +845,7 @@ w3=1
 
 if __name__ == "__main__":
     # imname = sys.argv[1]
-    imname = 'lumi.png'
+    imname = 'image/lumi.png'
     mark = 1
     # print(str(sys.argv))
 

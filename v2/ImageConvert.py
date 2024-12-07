@@ -38,7 +38,7 @@ def dBytesToMat(data,bitWidth,Width,Height):
     arr = arr.astype(np.uint8)
     image = arr.reshape(Height,Width,1)
     print('image.shape')
-    print(image.shape)
+    print(str(image.shape))
     return image
 def separationImage(data,Width,Height):
     arr = np.frombuffer(data,dtype=np.uint16)
@@ -53,12 +53,34 @@ def separationImage(data,Width,Height):
     return image
 
 def convert_color(image,color_mode):
+    print('color_mode %d'%(color_mode))
     if color_mode == 0:
         image = cv2.cvtColor(image,COLOR_BayerRG2BGR)
     if color_mode == 1:
         image = cv2.cvtColor(image,COLOR_BayerGR2BGR)
     if color_mode == 2:
+        print(type(image))
+        print(type(image[1,1]))
+        print(type(image[1,1,0]))
+        print(image.shape)
+        print(image[1,1].shape)
+        print(type(image[1,1,0]))
+        # for i in range(image.shape[0]):
+        #     for j in range(image.shape[1]):
+                # print('%2x'%(image[i,j]))
+            # print('\n')
+        print('n')
+        print(image.shape)    
+        print(str(image[1,1]) )   
+        for i in range(image.shape[0]):
+            ostr=''
+            for j in range(image.shape[1]):
+                ostr +='%d '%(image[i,j,0])
+            print( ostr)
         image = cv2.cvtColor(image,COLOR_BayerGB2BGR)
+        print(image.shape)    
+        print(str(image[1,1])  )  
+
     if color_mode == 3:
         image = cv2.cvtColor(image,COLOR_BayerBG2BGR)
     if color_mode < 0 and color_mode > 3:
@@ -88,6 +110,8 @@ def convert_image(data,cfg,color_mode):
             image = dBytesToMat(data,bitWidth,Width,Height)
         else:
             image = np.frombuffer(data, np.uint8).reshape( Height,Width , 1 )
+
+        print('convert_color')    
         image = convert_color(image,color_mode)
     if emImageFmtMode == ArducamSDK.FORMAT_MODE_RAW_D:
         image = separationImage(data,Width,Height)

@@ -308,7 +308,7 @@ while(True):
     # print('sendValue=')
     # print(sendValue, type(sendValue))
     if sendValue == None:
-        sendValue = 1000
+        sendValue = 10
     sendValue = int(sendValue)
     
     if sendValue and sendValue > 0:
@@ -353,11 +353,13 @@ while(True):
             f_count = 0
             f_time = time.time()
 
-        # print('ok   !!!!!!!!!!!!!!!', str(cfg))
+        print('ok   !!!!!!!!!!!!!!!', str(cfg))
         arr = np.frombuffer(data,dtype=np.uint16)
-
-        # print(type(arr))
-        # print(str(arr))
+        print(type(data))
+        print(len(data))
+        
+        print(arr.shape)
+        print(str(arr))
 
 
 
@@ -369,7 +371,7 @@ while(True):
         w1 = image.shape[1]
         h1 = image.shape[0]
         frame = image
-        print(str(ret_val)+' '+"%dX%d"%(w1,h1) ) #+str(frame)
+        print(str(ret_val)+' '+" %dX%d "%(w1,h1) + str(image.shape)) 
         tm = time.localtime()
         file_name = '%.4d_%.2d_%.2d'%(tm.tm_year, tm.tm_mon, tm.tm_mday) + '-' +  '%.2d_%.2d_%.2d'%(tm.tm_hour, tm.tm_min, tm.tm_sec)+ '-' + '%.5d'%(run_num) + '-' +  str(br)
         image1 = cv2.resize(frame,(640,480),interpolation = cv2.INTER_LINEAR)
