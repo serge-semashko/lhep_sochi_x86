@@ -1,0 +1,8 @@
+sudo nano  /usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml 
+ "camera_timeout_value_ms": 86400000000,
+
+
+
+
+echo 1 to /sys/module/imx296/parameters/trigger_mode
+
