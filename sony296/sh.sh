@@ -1,1 +1,1 @@
-python main.py
+python shot_imx296.py
