@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to 3D Graph</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <script>
+        let img;
+        let averagedMatrix = [];
+        let scene, camera, renderer;
+        let geometry, material, mesh;
+
+        function preload() {
+            img = loadImage('path/to/your/image.jpg'); // Загрузите ваше изображение
+        }
+
+        function setup() {
+            createCanvas(400, 400);
+            img.resize(400, 400); // Измените размер изображения для удобства
+            img.loadPixels();
+
+            // Преобразование изображения в матрицу средних значений 10x10
+            for (let y = 0; y < img.height; y += 10) {
+                let row = [];
+                for (let x = 0; x < img.width; x += 10) {
+                    let sum = 0;
+                    let count = 0;
+                    for (let dy = 0; dy < 10; dy++) {
+                        for (let dx = 0; dx < 10; dx++) {
+                            let index = ((y + dy) * img.width + (x + dx)) * 4;
+                            let r = img.pixels[index];
+                            let g = img.pixels[index + 1];
+                            let b = img.pixels[index + 2];
+                            let brightness = (r + g + b) / 3;
+                            sum += brightness;
+                            count++;
+                        }
+                    }
+                    row.push(sum / count);
+                }
+                averagedMatrix.push(row);
+            }
+
+            // Инициализация Three.js сцены
+            initThreeJS();
+        }
+
+        function initThreeJS() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Создание геометрии на основе матрицы средних значений
+            geometry = new THREE.PlaneGeometry(averagedMatrix[0].length, averagedMatrix.length, averagedMatrix[0].length - 1, averagedMatrix.length - 1);
+            let vertices = geometry.attributes.position.array;
+
+            for (let y = 0; y < averagedMatrix.length; y++) {
+                for (let x = 0; x < averagedMatrix[y].length; x++) {
+                    let height = averagedMatrix[y][x] / 255 * 10; // Масштабирование высоты
+                    vertices[(y * averagedMatrix[y].length + x) * 3 + 2] = height;
+                }
+            }
+
+            material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+            mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            camera.position.z = 20;
+
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            mesh.rotation.x += 0.01;
+            mesh.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>
