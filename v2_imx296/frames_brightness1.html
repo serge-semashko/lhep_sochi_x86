@@ -73,10 +73,17 @@ var dloc;
 
             <tr>
                 <td>
-                <img id=last_jpg_5 height=211  src="http://"+hostname+"/get_frame?file=last.png" style="padding:20px 0px 0px 30px">
+                <img id=last_jpg_5 height=211  src="" style="padding:20px 0px 0px 30px">
                 </td><td>
-                    <img id=barh_jpg_5 height=250 src="http://"+hostname+"/get_frame?file=last.png">
+                    <img id=barh_jpg_5 height=250 src="">
                 </td>
+                <td>
+                  <img id=last_jpg_1 height=211  src="" style="padding:20px 0px 0px 30px">
+                </td><td>
+                    <img id=barh_jpg_1 height=250 src="">
+                </td>
+
+
 
             </tr>
             <tr>
@@ -166,6 +173,7 @@ function refresh_list(){
         let mark_1 = lastsrc.split('.')[0]+'-1mm.png';
         document.getElementById('last_jpg').src="http://"+hostname+"/get_frame?file=" +mark;
         document.getElementById('last_jpg_5').src="http://"+hostname+"/get_frame?file=" +mark_5;
+        document.getElementById('last_jpg_1').src="http://"+hostname+"/get_frame?file=" +mark_1;
 
 
 
@@ -175,6 +183,8 @@ function refresh_list(){
         document.getElementById('barh_jpg_5').src="http://"+hostname+"/get_frame?file=" +lastsrc.split('.')[0]+'-5mm-barh.png';;
         document.getElementById('bar_jpg_5').src="http://"+hostname+"/get_frame?file=" +lastsrc.split('.')[0]+'-5mm-bar.png';;
 
+        document.getElementById('barh_jpg_1').src="http://"+hostname+"/get_frame?file=" +lastsrc.split('.')[0]+'-1mm-barh.png';;
+        document.getElementById('bar_jpg_1').src="http://"+hostname+"/get_frame?file=" +lastsrc.split('.')[0]+'-1mm-bar.png';;
 
 
 

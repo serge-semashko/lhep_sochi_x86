@@ -149,9 +149,10 @@ def get_frames_list():
 
         rez_arr = []
         for i in flist:
-            if i[-3:] == 'txt':
+            if i[-5:] == '0.txt':
                 if i[:3] !='202':
                     continue
+
                 rez_arr.append(i)
         rez_arr.sort(reverse=True)
         # logging.info(" Get frame list result\n%s"%(str(rez_arr)))
