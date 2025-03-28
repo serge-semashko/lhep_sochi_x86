@@ -45,7 +45,7 @@ client = Client(('127.0.0.1', 11211))
 run_num = 1 #номер рана
 frame_cup = 1
 frame_inter = 0.5 #500 милисекунд
-run_inter = 0.5
+run_inter = 0
 run_error = 0
 frame_err = 0
 
@@ -55,10 +55,12 @@ f_time=time.time()
 save_flag=False
 f_count=0
 f_time=time.time()
-
+controls = {'ExposureTime': 10, 'AnalogueGain': 8, 'FrameRate': 40}
+config = picam2.create_still_configuration(controls=controls)
+picam2.start(config)
+ExposureTime = -1
 while(True):
-    if frame_err>5:
-        pass
+    print(time.time())
     try:
         sendValue = client.get('Value')
     except Exception as e:
@@ -70,57 +72,37 @@ while(True):
     # print(sendValue, type(sendValue))
     if sendValue == None:
         sendValue = 10
-    sendValue = int(sendValue)
-    
-    if sendValue and sendValue > 0:
-        br = sendValue
-        flag = 1
-    else:
-        flag = 0
-        # print(flag, br)
-
-
-
-
-
-
-
+    nExpo = int(sendValue)
+ 
     try:
         t1 = time.time()
-        controls = {'ExposureTime': br, 'AnalogueGain': 1.0, 'FrameRate': 40}
-        config = picam2.create_still_configuration(controls=controls)
-        picam2.start(config)
+        if ExposureTime != nExpo:
+            picam2.stop()
+            controls = {'ExposureTime': nExpo, 'AnalogueGain': 32, 'FrameRate': 40}
+            ExposureTime = nExpo
+            config = picam2.create_still_configuration(controls=controls)
+            picam2.start(config)
+            print('set expo')
+        
         data = picam2.capture_array()
-        picam2.stop()
-            
-
         f_count += 1
         if f_count == 10:
             print('================FPS=%f'%(10/ (time.time() - f_time)))
             f_count = 0
             f_time = time.time()
 
-        image = data
-        w1 = image.shape[1]
-        h1 = image.shape[0]
-        frame = image
-        tm = time.localtime()
-        file_name = '%.4d_%.2d_%.2d'%(tm.tm_year, tm.tm_mon, tm.tm_mday) + '-' +  '%.2d_%.2d_%.2d'%(tm.tm_hour, tm.tm_min, tm.tm_sec)+ '-' + '%.5d'%(run_num) + '-' +  str(br)
-        image1 = cv2.resize(frame,(640,480),interpolation = cv2.INTER_LINEAR)
-        cv2.imwrite('images/tmp.png', frame)
-        os.rename('images/tmp.png','images/'+file_name+'.png')
+        # image = data
+        # w1 = image.shape[1]
+        # h1 = image.shape[0]
+        # frame = image
+        # tm = time.localtime()
+        # file_name = '%.4d_%.2d_%.2d'%(tm.tm_year, tm.tm_mon, tm.tm_mday) + '-' +  '%.2d_%.2d_%.2d'%(tm.tm_hour, tm.tm_min, tm.tm_sec)+ '-' + '%.5d'%(run_num) + '-' +  str(ExposureTime)
+        # cv2.imwrite('images/tmp.png', frame)
+        # os.rename('images/tmp.png','images/'+file_name+'.png')
         
-        print(file_name)
-        run_num += 1
-        # print('sleep')
-        flag = 0
-        # print('sleep end')
-        windowName = "GELIKOSOFIYA "
-        # cv2.namedWindow(windowName,1)
-        # image = cv2.resize(image,(640,480),interpolation = cv2.INTER_LINEAR)
-
-        # cv2.imshow(windowName,image)
-        # cv2.waitKey(10)
+        # print(file_name)
+        # run_num += 1
+        # flag = 0
 
     except Exception as e:
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -131,6 +113,6 @@ while(True):
         print(res_data)
         run_error = 1
 
-    time.sleep(run_inter)
+    # time.sleep(run_inter)
 # When everything done, release the capture
 cv2.destroyAllWindows()

@@ -9,15 +9,11 @@ op = "BOARD11"
 ip = "BOARD15"
 outp = gp.LED("BOARD11")
 while 1==1:
-    outp.on()
-    # print(time.time())
-    # print(time.time_ns())
     print(perf_counter())
+    outp.on()
+    time.sleep(0.0001)
     outp.off()
-    # print(perf_counter())
-    # print(time.time())
-    # print(time.time_ns())
-    time.sleep(0.01)
+    time.sleep(0.2)
 
 
 
