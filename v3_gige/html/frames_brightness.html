@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LumiView v1.75</title>
+    <style>
+
+      .content .left {
+        float: right;
+        width: 25%;
+        color: #ffffff;
+        background-color: #303030;
+      }
+      body {
+        background-color: #202020;
+      }
+      td {
+        font-size: 1.2rem;
+        padding: 0px 5px 0px 5px;
+      }
+      .right {
+        float: left;
+        width: 60%;
+        background-color: #444444;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var dloc;
+      var hostname;
+    </script>
+
+    <div class="content">
+      <div class="left">
+        <h1>
+          <a style="color: white" target="_blank" href="/get_all_shots"
+            >Загрузить всю историю</a
+          >
+        </h1>
+
+        <div>
+          <input type="text" id="br" />
+          <input type="button" value="Яркость" onclick="sendBr()" /> <br />
+          <i id="last_name">aaaaa</i>
+        </div>
+
+        <!-- <div> <input type = "button" value = "???? ???" onclick = "delFr()"></div> -->
+        <div id="rezult" style="height: 900px; overflow-y: auto"></div>
+      </div>
+
+      <div class="rigth" style="background-color: #202020; border: 1px black">
+        <table>
+          <tr>
+            <td>
+              <img id=last_jpg height=211
+              src="http://"+hostname+"/get_frame?file=last.png"
+              style="padding:20px 0px 0px 30px">
+            </td>
+            <td>
+              <img id=barh_jpg height=250
+              src="http://"+hostname+"/get_frame?file=last.png">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img id=bar_jpg width=370 height=150
+              src="http://"+hostname+"/get_frame?file=last.png">
+            </td>
+            <td id="table_stat" style="color: white"></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td>
+              <img
+                id="last_jpg_5"
+                height="211"
+                src=""
+                style="padding: 20px 0px 0px 30px"
+              />
+            </td>
+            <td>
+              <img id="barh_jpg_5" height="250" src="" />
+            </td>
+            <td>
+              <img
+                id="last_jpg_1"
+                height="211"
+                src=""
+                style="padding: 20px 0px 0px 30px"
+              />
+            </td>
+            <td>
+              <img id="barh_jpg_1" height="250" src="" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img id=bar_jpg_5 width=370 height=150
+              src="http://"+hostname+"/get_frame?file=last.png">
+            </td>
+            <td id="table_stat_5" style="color: white"></td>
+            <td>
+              <img id=bar_jpg_1 width=370 height=150
+              src="http://"+hostname+"/get_frame?file=last.png">
+            </td>
+            <td id="table_stat_1" style="color: white"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    window.onload = function () {
+      dloc = document.location;
+      if (dloc.hostname.length < 3) {
+        hostname = "localhost";
+      } else {
+        hostname = dloc.host;
+      }
+    };
+    function delFr() {
+      console.log("checking");
+      url = "http://" + hostname + "/delete_frames";
+      fetch(url).then((response) => {
+        if (response.ok) {
+          console.log("Deleted");
+        }
+      });
+    }
+
+    function sendBr() {
+      console.log("checking");
+      console.log(document.getElementById("br").value);
+      url =
+        "http://" +
+        hostname +
+        "/set_brightness?brightness=" +
+        document.getElementById("br").value;
+      fetch(url).then((response) => {
+        if (response.ok) {
+          console.log("brightness setted");
+        }
+      });
+    }
+    function refresh_list() {
+      let url = "http://" + hostname + "/get_frames_list";
+      console.log("fetch " + url);
+      fetch(url, {
+        method: "GET",
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (res) {
+          console.log("success");
+          let data_rez = JSON.parse(res);
+          console.log(data_rez);
+          console.log(typeof data_rez);
+          let rez_tabl =
+            '<table class = "tab_1" id = "frame_tabl"><tr><th>Показать кадр</th></tr><tbody>';
+          let lastsrc = "";
+          for (let i = 0; i < data_rez.length; i++) {
+            if (i == 0) {
+              lastsrc = "http://" + hostname + "/get_frame?file=" + data_rez[i];
+            }
+            console.log(data_rez[i]);
+            rez_tabl +=
+              "<tr>" +
+              '<td style="color:white"><a  style="color:white"  target = "_blank" href = "http://' +
+              hostname +
+              "/get_oneshot?file=" +
+              data_rez[i] +
+              '">' +
+              data_rez[i] +
+              "</a></td></tr>";
+          }
+          rez_tabl += "</tbody></table>";
+
+          document.getElementById("rezult").innerHTML = rez_tabl;
+          console.log("lastsrc " + lastsrc);
+          lastsrc = lastsrc.split("=")[1];
+          console.log(lastsrc);
+          console.log(lastsrc.split(".")[0]);
+
+          let mark = lastsrc.split(".")[0] + "-markup.png";
+          let mark_5 = lastsrc.split(".")[0] + "-5mm.png";
+          let mark_1 = lastsrc.split(".")[0] + "-1mm.png";
+          document.getElementById("last_jpg").src =
+            "http://" + hostname + "/get_frame?file=" + mark;
+          document.getElementById("last_jpg_5").src =
+            "http://" + hostname + "/get_frame?file=" + mark_5;
+          document.getElementById("last_jpg_1").src =
+            "http://" + hostname + "/get_frame?file=" + mark_1;
+
+          document.getElementById("barh_jpg").src =
+            "http://" +
+            hostname +
+            "/get_frame?file=" +
+            lastsrc.split(".")[0] +
+            "-barh.png";
+          document.getElementById("bar_jpg").src =
+            "http://" +
+            hostname +
+            "/get_frame?file=" +
+            lastsrc.split(".")[0] +
+            "-bar.png";
+
+          document.getElementById("barh_jpg_5").src =
+            "http://" +
+            hostname +
+            "/get_frame?file=" +
+            lastsrc.split(".")[0] +
+            "-5mm-barh.png";
+          document.getElementById("bar_jpg_5").src =
+            "http://" +
+            hostname +
+            "/get_frame?file=" +
+            lastsrc.split(".")[0] +
+            "-5mm-bar.png";
+
+          document.getElementById("barh_jpg_1").src =
+            "http://" +
+            hostname +
+            "/get_frame?file=" +
+            lastsrc.split(".")[0] +
+            "-1mm-barh.png";
+          document.getElementById("bar_jpg_1").src =
+            "http://" +
+            hostname +
+            "/get_frame?file=" +
+            lastsrc.split(".")[0] +
+            "-1mm-bar.png";
+
+          //       document.getElementById('last_jpg').update();
+          document.getElementById("last_name").innerHTML = lastsrc[1];
+          load_table(lastsrc.split(".")[0]);
+        });
+    }
+
+    function load_table(lastsrc) {
+      console.log("load");
+      let url =
+        "http://" + hostname + "/get_file?file=" + lastsrc + "_tbl.html";
+
+      fetch(url)
+        .then((response) => {
+          if (response.ok) {
+            console.log("load complete");
+            return response.text();
+          }
+        })
+        .then((data) => {
+          document.getElementById("table_stat").innerHTML = data;
+          console.log(data);
+        });
+    }
+
+    refresh_list();
+    var intervalID = setInterval(refresh_list, 4000);
+  </script>
+</html>

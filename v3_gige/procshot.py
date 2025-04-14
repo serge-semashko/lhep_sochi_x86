@@ -126,7 +126,10 @@ def getsr(piece_coord, rect):
     return sr
 
 def get_changed_color(cmin, cmax, ccur):
-    ckoef = (ccur - cmin) / (cmax - cmin)
+    if cmax != cmin:
+        ckoef = (ccur - cmin) / (cmax - cmin)
+    else:
+        ckoef = 1
     cchanged = ckoef * 255
 
     return cchanged
@@ -771,9 +774,10 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         if max>0:
             uni = (max-min)/max
         else:
-            uni=0 
+            uni=0
+
         mrow = (round(y_c1-cm[0])) /pmm
-        mcol = round(x_c1-cm[1])/pmm   
+        mcol = round(x_c1-cm[1]) / pmm
         # qtbl += '<tr><td>Center='+str(x_c1)+'</td><td>'+str(y_c1)+'</td><td> '+str(cm)+'</td><td> %.2f,  %.2f '%(mcol,mrow)+'</td></tr>'
         qtbl += '<td>'+str(min)+'</td><td>'+str(max)+'</td><td>%.2f'%(uni)+'</td><td>%.2f'%(np.mean(bwt)) + '</td><td>%.2f'%(np.std(bwt))
         
@@ -953,7 +957,7 @@ w3=1
 
 if __name__ == "__main__":
     imname = sys.argv[1]
-    #imname = 'lumi.png'
+    #imname = 'photo_2025-04-14_14-08-03.jpg'
     mark = 1
     # print(str(sys.argv))
 
@@ -963,7 +967,6 @@ if __name__ == "__main__":
     #12 - толщина центрального креста, 13 - толщина крестов через каждый сантиметр, 14 - толщина крестов через каждые 5 мм, 15 - отрисовывать ли сетку на результирующих изображениях
 
     t1 = time.time()
-    process_shot(1 ,  1,538, 358, 800, 600, 80, 57, 8, 6, 'images/gig00.png', 4, 1, 1,1)
-#   process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, imname, w1, w2, w3, mark))
-#    print('rezult -', process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, imname, w1, w2, w3, mark))
+
+    print('rezult -', process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, imname, w1, w2, w3, mark))
     print(time.time()-t1);
