@@ -172,8 +172,8 @@ def get_frames_list():
     resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
 
     return resp
-
-
+# /get_frame?file=shot.png
+# <>
 @app.route('/get_frame', methods=['GET'])
 def get_frame():
     #print("connect get frame")
@@ -321,14 +321,14 @@ def process_shots():
             flist = listdir('./images')
             # #print(str(flist))
             for i in flist:
-                if i[-3:] != 'png':
+                if i[-3:] != 'bmp':
                     continue
                 # #print(i)
                 if not i[len(i)-5].isnumeric():
                     continue
                 
 
-                if i[:3] !='gig':
+                if i[1:4] !='ic_':
                         continue
                 # #print(i)
                 if i.find('bar') >-1:
@@ -341,13 +341,14 @@ def process_shots():
                     continue
                 # #print(i)
                 fname ='images/'+ i.split('.')[0]
+                # fname ='images/'+ i
                 if os.path.isfile(fname+'-bar.png') and os.path.isfile(fname+'-barh.png') and  os.path.isfile(fname+'-markup.png') and os.path.isfile(fname+'.txt'):
                     continue
                 time0=time.time()
                 print('pROCESS shot '+ fname)
-                print(f"{kx},{ky},{xl}, {yu}, {xr}, {yd}, {x_len}, {y_len}, {x_tab}, {y_tab}, {fname} +'.png', {w1}, {w2}, {w3},'' ")
-                process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname +'.png', w1, w2, w3,'' )
-                aaa()
+                print(f"{kx},{ky},{xl}, {yu}, {xr}, {yd}, {x_len}, {y_len}, {x_tab}, {y_tab}, {fname}, {w1}, {w2}, {w3},'' ")
+                process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname+'.bmp' , w1, w2, w3,'' )
+                # aaa()
                 files_ok.append(i)    
                 #print('processed(%.1f sec) %s'%(time.time()-time0,i))
             time.sleep(1)

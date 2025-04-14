@@ -106,6 +106,7 @@ def getsrminmax(piece_coord, rect):
                 mmax = el
             if el < mmin:
                 mmin = el
+    print(f"s {s} k {k}")
     sr = s // k
     return [mmin, sr, mmax]
 
@@ -129,7 +130,7 @@ def get_changed_color(cmin, cmax, ccur):
     if cmax != cmin:
         ckoef = (ccur - cmin) / (cmax - cmin)
     else:
-        ckoef = 1
+        ckoef = 0
     cchanged = ckoef * 255
 
     return cchanged
@@ -220,7 +221,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     change_pic(imname)
 
     img = cv2.imread(filename)
-    # print(img.shape)
+    print(f"file={filename}   {img.shape}")
     img = img[yu:yd+1, xl:xr+1]
     # print(img.shape)
     xr=xr-xl
@@ -320,7 +321,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
         rezmatr0[rezy][rezx] = sr
 
-    print('=================================rezmatr0=====================================')
+    print('============+++=====================rezmatr0=====================================')
     print(rezmatr0)
     print()
     f = open('rezmatr_5cm.txt', 'w')
@@ -341,7 +342,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     rezimg0 = np.zeros([yrange, xrange, 3], dtype=int)
     rezimg0_1 = np.zeros([yrange, xrange, 3], dtype=int)
 
-    print(rezimg0.shape)
+    print(f"rezimg0.shape  {rezimg0.shape}  rezmatr0.shape {rezmatr0.shape}")
     for i in range(rezmatr0.shape[1]):
         for j in range(rezmatr0.shape[0]):
             #sr0 = get_color(rezmatr0[j][i][1])
@@ -356,18 +357,18 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
             yd0 = p[1][0]
             xr0 = p[1][1]
 
-            print(yu0, yd0, xl0, xr0)
+            # print(yu0, yd0, xl0, xr0)
 
             for a in range(yu0, yd0):
                 for b in range(xl0, xr0):
                     rezimg0[a][b] = sr0
                     rezimg0_1[a][b] = sr0_1
-    cv2.line(rezimg0, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
-    cv2.line(rezimg0, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
-    cv2.imwrite(imname.split('.')[0] + '-5cm.png', rezimg0)
-    cv2.line(rezimg0_1, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
-    cv2.line(rezimg0_1, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
-    cv2.imwrite(imname.split('.')[0] + '-5cm_scaled.png', rezimg0_1)
+    # cv2.line(rezimg0, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
+    # cv2.line(rezimg0, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
+    # cv2.imwrite(imname.split('.')[0] + '-5cm.png', rezimg0)
+    # cv2.line(rezimg0_1, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
+    # cv2.line(rezimg0_1, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
+    # cv2.imwrite(imname.split('.')[0] + '-5cm_scaled.png', rezimg0_1)
 
     # nx1 = math.trunc(xrange / range_cm)
     # nx2 = math.trunc(xrange / range_mm)
@@ -417,7 +418,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr1[rezy][rezx] = sr
 
     print('=================================rezmatr1=====================================')
-    print(rezmatr1)
+    # print(rezmatr1)
     print()
 
     f = open('rezmatr_1cm.txt', 'w')
@@ -510,7 +511,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr2[rezy][rezx] = sr
 
     print('=================================rezmatr2=====================================')
-    print(rezmatr2)
+    # print(rezmatr2)
     print()
 
     f = open('rezmatr_5mm.txt', 'w')
@@ -630,7 +631,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr3[rezy][rezx] = sr
 
     print('=================================rezmatr3=====================================')
-    print(rezmatr3)
+    # print(rezmatr3)
     print()
 
     f = open('rezmatr_1mm.txt', 'w')
@@ -756,15 +757,18 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         
         # bw = cv2.rectangle(bw,(x1,y1),(x2,y2),(255,255,255),1)
         # cv2.imwrite(str(i)+'.png',bwt)
-        cm = ndimage.measurements.center_of_mass(bwt)
+        cm = ndimage.center_of_mass(bwt)
+        if math.isnan(cm[0] ):
+            cm = (bwt.shape[0] //2 , bwt.shape[1] //2)  
+
         # if i==2:
             # print(str(str(i)+'.png'))
             # print(str(bwt))
         # print(str(str(i)+'.png'))
         a_x= np.sum(bwt, axis = 0)
         a_y= np.sum(bwt, axis = 1)
-        cm_x = ndimage.measurements.center_of_mass(a_x)[0]
-        cm_y = ndimage.measurements.center_of_mass(a_y)[0]
+        cm_x = ndimage.center_of_mass(a_x)[0]
+        cm_y = ndimage.center_of_mass(a_y)[0]
         # print(str(a_x))
         # print(str(cm_x))    
         # print(str(a_y))
@@ -907,6 +911,9 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     file = open(filename.split('.')[0]+'.txt', 'w')
     resstr = ''
     cm = ndimage.center_of_mass(rezmatr)
+    if math.isnan(cm[0] ):
+        cm = (rezmatr.shape[0] //2 , rezmatr.shape[1] //2)  
+
     min = np.min(rezmatr)
     max = np.max(rezmatr)
     if max>0:
