@@ -1,0 +1,1 @@
+python procshot.py images/lumi.png
