@@ -17,7 +17,7 @@ def get_color(mean):
 
 def getpiececoords(x_piece_range, y_piece_range, center_x, center_y, yu, xl, yd ,xr):
 
-    print([yu + y_piece_range * 0 - yu, xl + x_piece_range * 5 - xl], [yu + y_piece_range * (0 + 1) - 1 - yu, xl + x_piece_range * (5 + 1) - 1 - xl])
+    # print([yu + y_piece_range * 0 - yu, xl + x_piece_range * 5 - xl], [yu + y_piece_range * (0 + 1) - 1 - yu, xl + x_piece_range * (5 + 1) - 1 - xl])
 
     pieces = []
 
@@ -108,7 +108,7 @@ def getsrminmax(piece_coord, rect):
                 mmax = el
             if el < mmin:
                 mmin = el
-    print(f"s {s} k {k}")
+    # print(f"s {s} k {k}")
     sr = s // k
     return [mmin, sr, mmax]
 
@@ -206,7 +206,7 @@ def change_pic(imname):
                     sg += img[coords[0] + 1][coords[1] + 1][1]
                     sr += img[coords[0] + 1][coords[1] + 1][2]
                     k += 1
-            print(pix_arr[i], sb, sg, sr)
+            # print(pix_arr[i], sb, sg, sr)
 
             img[coords[0]][coords[1]] = [int(sb / k), int(sg / k), int(sr / k)]
 
@@ -218,14 +218,20 @@ def change_pic(imname):
     return 0
 
 def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_center, thick_cm, thick_5mm, mark):
+
+    t1 = time.time()
     import matplotlib.pyplot as plt
     img = cv2.imread(filename)
+    img = cv2.resize(img, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_LINEAR)
+    xl //=2
+    yu //=2
+    xr //=2
+    yd //=2
+    print(f"1 {time.time()-t1}");
     onlyname = os.path.dirname(filename)+'/'+pathlib.Path(filename).stem;
-
     # change_pic(imname)
-
-    img = cv2.imread(filename)
-    print(f"file={filename}   {img.shape}")
+    # print(f"file={filename}   {img}")
+    print(f"Start  file={filename}   {img.shape}")
     img = img[yu:yd+1, xl:xr+1]
     # print(img.shape)
     xr=xr-xl
@@ -326,7 +332,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr0[rezy][rezx] = sr
 
     print('============+++=====================rezmatr0=====================================')
-    print(rezmatr0)
+    print(f"2 {time.time()-t1}");
+    # print(rezmatr0)
     print()
     f = open('rezmatr_5cm.txt', 'w')
     if rmax0 > 0:
@@ -406,7 +413,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
 
     rezmatr1 = np.zeros([ny1, nx1, 3], dtype=int)
     for i in range(len(pieces_1)):
-        print(pieces_1[i])
+        # print(pieces_1[i])
         sr = getsrminmax(pieces_1[i], rabrect)
 
         rezy = i // nx1
@@ -422,6 +429,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr1[rezy][rezx] = sr
 
     print('=================================rezmatr1=====================================')
+    print(f"3 {time.time()-t1}");
     # print(rezmatr1)
     print()
 
@@ -515,6 +523,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr2[rezy][rezx] = sr
 
     print('=================================rezmatr2=====================================')
+    print(f"4 {time.time()-t1}");
     # print(rezmatr2)
     print()
 
@@ -562,7 +571,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     cv2.line(rezimg2_1, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(rezimg2_1, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
     if mark == 1:
-        print('marking 5mm')
+        # print('marking 5mm')
         for i in range(center_x, xl, -1 * range_mm):
             cv2.line(rezimg2, (i, yu), (i, yd), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_x, xr, range_mm):
@@ -635,6 +644,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         rezmatr3[rezy][rezx] = sr
 
     print('=================================rezmatr3=====================================')
+    print(f"5 {time.time()-t1}");
     # print(rezmatr3)
     print()
 
@@ -682,7 +692,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     cv2.line(rezimg3_1, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(rezimg3_1, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
     if mark == 1:
-        print('marking 1 mm')
+        # print('marking 1 mm')
         for i in range(center_x, xl, -1 * pmm_y):
             cv2.line(rezimg3, (i, yu), (i, yd), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_x, xr, pmm_y):
@@ -720,7 +730,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         yinfo3.append(s3 // k3)
     x = [((i - nx3 / 2)) for i in range(nx3)]
     y = [((i - ny3 / 2)) for i in range(ny3)]
-
+# speed
     plt.bar(x, xinfo3, width=0.5)
     plt.savefig(filename.split('.')[0] + '-1mm-bar.png')
     plt.clf()
@@ -744,6 +754,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     bw = cv2.cvtColor(rabrect, cv2.COLOR_BGR2GRAY)
     qtbl = '<table border=1 style="border-collapse: collapse;">'
     qtbl +='<tr><td>Size</td><td>Min</td><td>Max</td><td>Heter.</td><td>Mean</td><td>Std</td><td>Center Mass</td></tr>'
+    print(f"6 {time.time()-t1}");
     for i in range(5):
         qtbl +='<tr><td>'+str((i+1)*10)+'mm</td>'
         q_range = math.trunc(pmm * (i+1)*10/2)
@@ -793,6 +804,7 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     file = open(filename.split('.')[0]+'_tbl.html', 'w')
     file.write(qtbl)        
     file.close()        
+    print(f"7 {time.time()-t1}");
         
         
 
@@ -884,20 +896,21 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     plt.savefig(filename.split('.')[0] + '-barh.png')
     plt.clf()
     # print(time.time()-t1);
+    print(f"8 {time.time()-t1}");
 
     # cv2.rectangle(img, (xl, yu), (xr, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(img, (center_x, yu), (center_x, yd), (0, 0, 0), thickness=thick_center)
     cv2.line(img, (xl, center_y), (xr, center_y), (0, 0, 0), thickness=thick_center)
 
-    for i in range(center_x, xl, -1 * range_cm):
-        cv2.line(img, (i, yu), (i, yd), (0, 0, 0), thickness=thick_cm)
-    for i in range(center_x, xr, range_cm):
-        cv2.line(img, (i, yu), (i, yd), (0, 0, 0), thickness=thick_cm)
+    # for i in range(center_x, xl, -1 * range_cm):
+    #     cv2.line(img, (i, yu), (i, yd), (0, 0, 0), thickness=thick_cm)
+    # for i in range(center_x, xr, range_cm):
+    #     cv2.line(img, (i, yu), (i, yd), (0, 0, 0), thickness=thick_cm)
 
-    for i in range(center_y, yu, -1 * range_cm):
-        cv2.line(img, (xl, i), (xr, i), (0, 0, 0), thickness=thick_cm)
-    for i in range(center_y, yd, range_cm):
-        cv2.line(img, (xl, i), (xr, i), (0, 0, 0), thickness=thick_cm)
+    # for i in range(center_y, yu, -1 * range_cm):
+    #     cv2.line(img, (xl, i), (xr, i), (0, 0, 0), thickness=thick_cm)
+    # for i in range(center_y, yd, range_cm):
+    #     cv2.line(img, (xl, i), (xr, i), (0, 0, 0), thickness=thick_cm)
 
     # for i in range(center_x, xl, -1 * range_mm):
     #     cv2.line(img, (i, yu), (i, yd), (0, 0, 0), thickness=thick_5mm)
@@ -948,18 +961,19 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     file = open(filename.split('.')[0]+'.html', 'w')
     file.write(restbl)
     file.close()
+    print(f"9 {time.time()-t1}");
 
 
     return rezmatr
 kx =1#(1* (2 ** 0.5) )/ 2
 ky =1# 1/2 
-xl=538
-yu=358
-xr=800
-yd=600
-x_len=80
-y_len=57
-x_tab=8
+xl=470
+yu=300
+xr=1143
+yd=900
+x_len=60
+y_len=60
+x_tab=6
 y_tab=6
 w1=4
 w2=1
@@ -970,7 +984,7 @@ if __name__ == "__main__":
     imname = sys.argv[1]
     #imname = 'photo_2025-04-14_14-08-03.png'
     mark = 1
-    # print(str(sys.argv))
+    print('NAME !!!!!'+__name__)
 
     #imname = 'photo_2024-10-11_11-29-01.png'
     #1 - коэффициент деформации по х, 2 - коэффициент деформации по у, 3 - левая граница по x, 4 - верхняя граница по y, 5 - правая граница по x, 6 - нижняя граница по y,

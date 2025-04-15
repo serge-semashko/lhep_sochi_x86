@@ -1,3 +1,5 @@
+import glob
+
 import sys
 # import logging
 import base64
@@ -141,39 +143,6 @@ def get_index():
 
 
 
-@app.route('/get_frames_list', methods=['GET'])
-def get_frames_list():
-    try:
-        flist = listdir('./images')
-        # logging.info(" Get frame list. all files \n%s"%(str(flist)))
-
-        rez_arr = []
-        for i in flist:
-            if i[-3:] != 'txt':
-                continue
-            if not i[len(i)-5].isnumeric():
-                continue
-            if i[1:4] !='ic_':
-                continue
-            rez_arr.append(i)
-        rez_arr.sort(reverse=True)
-        # logging.info(" Get frame list result\n%s"%(str(rez_arr)))
-        rr = str(rez_arr).replace('\'', '\"')
-#        #print(json.dumps(rr))
-        resp = make_response(json.dumps(rr), 200)
-    except Exception as e:
-        exc_type, exc_value, exc_traceback = sys.exc_info()
-        #print("*** print_tb:")
-        traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
-        #print("*** format_exc, first and last line:")
-        res_data = traceback.format_exc().splitlines()
-        #print(res_data)
-        resp = make_response('{"rc":-1}', 200)
-    resp.headers['content-type'] = 'text/html'
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
-
-    return resp
 # /get_frame?file=shot.png
 # <>
 @app.route('/get_frame', methods=['GET'])
@@ -185,7 +154,7 @@ def get_frame():
     inprm = str(params)
     #print("parm=" + inprm)
     # try:
-    file_name = 'images/'+params['file']
+    file_name = 'MV-A7170MG200_CK60609AAK00003/'+params['file']
     #print('open '+str(file_name))
     ff = open(file_name, 'rb')
     bin = ff.read()
@@ -219,8 +188,8 @@ def get_file():
     #print("connect 1" + inprm)
     try:
         file_name = params['file']
-        # ff = open('images/'+file_name, 'r',encoding='utf-8')
-        ff = open('images/'+file_name, 'rb')
+        # ff = open('MV-A7170MG200_CK60609AAK00003/'+file_name, 'r',encoding='utf-8')
+        ff = open('MV-A7170MG200_CK60609AAK00003/'+file_name, 'rb')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -270,7 +239,7 @@ def get_oneshot():
 def get_all_shots():
     #print("connect")
     import subprocess
-    process = subprocess.Popen('zip all_arch images/*', shell=True, stdout=subprocess.PIPE)
+    process = subprocess.Popen('zip all_arch MV-A7170MG200_CK60609AAK00003/*', shell=True, stdout=subprocess.PIPE)
     process.wait()
     #print(process.returncode)
     file_name = 'all_arch.zip'
@@ -299,7 +268,7 @@ def get_all_shots():
 def get_shot(file_name):
     #print("connect")
     try:
-        ff = open('images/'+file_name, 'rb')
+        ff = open('MV-A7170MG200_CK60609AAK00003/'+file_name, 'rb')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -315,47 +284,90 @@ def get_shot(file_name):
     resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     return resp
 
+@app.route('/get_frames_list', methods=['GET'])
+def get_frames_list():
+    t1 = time.time()
+    try:
+        # flist = listdir('./MV-A7170MG200_CK60609AAK00003/')
+        flist  = glob.glob('./MV-A7170MG200_CK60609AAK00003/Pic*.txt')
+
+        # print(" Get frame list. all files %s"%(str(flist)))
+
+        rez_arr = []
+        rez_arr = flist
+        rez_arr.sort(reverse=True)
+        rez_arr = rez_arr[0:25]
+        for i in range(len(rez_arr)):
+            a = rez_arr[i].split('\\')
+            rez_arr[i] = a[len(a)-1]
+        
+        rr = str(rez_arr).replace('\'', '\"')
+        resp = make_response(json.dumps(rr), 200)
+        print('get_frames_list %s sec'%(str(time.time()-t1)))
+    except Exception as e:
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        #print("*** print_tb:")
+        traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
+        #print("*** format_exc, first and last line:")
+        res_data = traceback.format_exc().splitlines()
+        #print(res_data)
+        resp = make_response('{"rc":-1}', 200)
+    resp.headers['content-type'] = 'text/html'
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+
+    return resp
+
+
 def process_shots():
-    #print('process_shots():')
+    global cycle_run
+    print(f"process_shots() {cycle_run}")
+    cycle_run = True
     files_ok = []
+    cyc = 0
     while 1==1:
+        # print(f"cycle start {cyc}")
+        cyc +=1
         try:
             a=1
-            flist = listdir('./images')
-            # #print(str(flist))
+            flist  = glob.glob('./MV-A7170MG200_CK60609AAK00003/*.bmp')
+            # flist.sort(reverse=False)
+            # print(str(flist[0:2]))
+            flist.sort(reverse=True)
+            print('!!!!!!for proc '+str(len(flist))+'   '+str(flist[0:10]))
             for i in flist:
+                i = i.split('\\')
+                i = i[len(i)-1]
+
                 if i[-3:] != 'bmp':
                     continue
-                # #print(i)
                 if not i[len(i)-5].isnumeric():
                     continue
                 
 
                 if i[1:4] !='ic_':
                         continue
-                # #print(i)
                 if i.find('bar') >-1:
                         continue
-                # #print(i)
                 if i.find('mark') >-1:
                         continue
-                # #print(i)
                 if i in files_ok:
                     continue
-                # #print(i)
-                fname ='images/'+ i.split('.')[0]
-                # fname ='images/'+ i
+                fname ='MV-A7170MG200_CK60609AAK00003/'+ i.split('.')[0]
                 if os.path.isfile(fname+'-bar.png') and os.path.isfile(fname+'-barh.png') and  os.path.isfile(fname+'-markup.png') and os.path.isfile(fname+'.txt'):
                     continue
                 time0=time.time()
-                print('pROCESS shot '+ fname)
                 print(f"{kx},{ky},{xl}, {yu}, {xr}, {yd}, {x_len}, {y_len}, {x_tab}, {y_tab}, {fname}, {w1}, {w2}, {w3},'' ")
                 process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname+'.bmp' , w1, w2, w3,'' )
                 # aaa()
                 files_ok.append(i)    
                 print('processed(%.1f sec) %s'%(time.time()-time0,i))
-            time.sleep(1)
+                break
+            time.sleep(0.21)
+            # print(f"cycle end {cyc}")
+
         except Exception as e:
+            print(f"cycle end error {cyc}")
             exc_type, exc_value, exc_traceback = sys.exc_info()
             print("*** print_tb:")
             traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
@@ -364,7 +376,8 @@ def process_shots():
             print(res_data)
 
 # process_shots()
-pro_shots  = threading.Thread(target=process_shots, args=(),daemon=False)
+cycle_run = False
+pro_shots  = threading.Thread(target=process_shots, args=(),daemon=True)
 pro_shots.start()
 app.run(debug=True, host="0.0.0.0", port=88)
 
