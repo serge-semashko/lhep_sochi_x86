@@ -4,10 +4,12 @@ matplotlib.use('agg')
 import cv2
 from scipy import ndimage
 import numpy as np
+import os
 import sys
 import time
 import math
 import json
+import pathlib
 t1 = time.time()
 
 def get_color(mean):
@@ -217,8 +219,10 @@ def change_pic(imname):
 
 def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_center, thick_cm, thick_5mm, mark):
     import matplotlib.pyplot as plt
+    img = cv2.imread(filename)
+    onlyname = os.path.dirname(filename)+'/'+pathlib.Path(filename).stem;
 
-    change_pic(imname)
+    # change_pic(imname)
 
     img = cv2.imread(filename)
     print(f"file={filename}   {img.shape}")
@@ -488,8 +492,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         for i in range(center_y, yd, range_cm):
             cv2.line(rezimg1_1, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
 
-    cv2.imwrite(imname.split('.')[0]+'-1cm.png', rezimg1)
-    cv2.imwrite(imname.split('.')[0] + '-1cm_scaled.png', rezimg1_1)
+    cv2.imwrite(onlyname+'-1cm.png', rezimg1)
+    cv2.imwrite(onlyname + '-1cm_scaled.png', rezimg1_1)
 
     rmin2 = 10000000000000000000
     rmax2 = 0
@@ -576,8 +580,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
             cv2.line(rezimg2_1, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_y, yd, range_mm):
             cv2.line(rezimg2_1, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
-    cv2.imwrite(imname.split('.')[0]+'-5mm.png', rezimg2)
-    cv2.imwrite(imname.split('.')[0] + '-5mm_scaled.png', rezimg2_1)
+    cv2.imwrite(onlyname+'-5mm.png', rezimg2)
+    cv2.imwrite(onlyname + '-5mm_scaled.png', rezimg2_1)
 
     xinfo2 = []
     for i in range(rezmatr2.shape[1]):
@@ -696,8 +700,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
             cv2.line(rezimg3_1, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
         for i in range(center_y, yd, pmm_y):
             cv2.line(rezimg3_1, (xl, i), (xr, i), (0, 0, 0), thickness=thick_5mm)
-    cv2.imwrite(imname.split('.')[0]+'-1mm.png', rezimg3)
-    cv2.imwrite(imname.split('.')[0] + '-1mm_scaled.png', rezimg3_1)
+    cv2.imwrite(onlyname+'-1mm.png', rezimg3)
+    cv2.imwrite(onlyname + '-1mm_scaled.png', rezimg3_1)
 
     xinfo3 = []
     for i in range(rezmatr3.shape[1]):
@@ -739,9 +743,9 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
     
     bw = cv2.cvtColor(rabrect, cv2.COLOR_BGR2GRAY)
     qtbl = '<table border=1 style="border-collapse: collapse;">'
-    qtbl +='<tr><td>Size</td><td>Min</td><td>Max</td><td>Неодн.</td><td>Mean</td><td>Std</td><td>Ц.М.</td></tr>'
+    qtbl +='<tr><td>Size</td><td>Min</td><td>Max</td><td>Heter.</td><td>Mean</td><td>Std</td><td>Center Mass</td></tr>'
     for i in range(5):
-        qtbl +='<tr><td>'+str((i+1)*10)+'мм</td>'
+        qtbl +='<tr><td>'+str((i+1)*10)+'mm</td>'
         q_range = math.trunc(pmm * (i+1)*10/2)
     
         y1 = math.trunc(y_c - q_range)
@@ -922,8 +926,8 @@ def process_shot(kx, ky, xl, yu, xr, yd, xdlin, ydlin, nx, ny, filename, thick_c
         uni=0 
     mrow = round(cm[0])
     mcol = round(cm[1])   
-    restbl = 'Min='+str(min)+' Max='+str(max)+' Неоднородность=%.2f'%(uni)+' Среднее=%.2f'%(np.mean(rezmatr)) + ' ст.Откл.=%.2f'%(np.std(rezmatr))
-    restbl +='<br>Ц.м.=(%.2f, %.2f)'%(cm[0], cm[1])+' ('+str(round(cm[0]))+', '+str(round(cm[1]))+')<br><table border=1 style="border-collapse: collapse;padding:5px;">'
+    restbl = 'Min='+str(min)+' Max='+str(max)+' heterogeneity=%.2f'%(uni)+' Mean=%.2f'%(np.mean(rezmatr)) + ' STD=%.2f'%(np.std(rezmatr))
+    restbl +='<br>Centr M.=(%.2f, %.2f)'%(cm[0], cm[1])+' ('+str(round(cm[0]))+', '+str(round(cm[1]))+')<br><table border=1 style="border-collapse: collapse;padding:5px;">'
     
     for i in range(ny):
         restbl +='<tr>'
@@ -964,11 +968,11 @@ w3=1
 
 if __name__ == "__main__":
     imname = sys.argv[1]
-    #imname = 'photo_2025-04-14_14-08-03.jpg'
+    #imname = 'photo_2025-04-14_14-08-03.png'
     mark = 1
     # print(str(sys.argv))
 
-    #imname = 'photo_2024-10-11_11-29-01.jpg'
+    #imname = 'photo_2024-10-11_11-29-01.png'
     #1 - коэффициент деформации по х, 2 - коэффициент деформации по у, 3 - левая граница по x, 4 - верхняя граница по y, 5 - правая граница по x, 6 - нижняя граница по y,
     #7 - Длина границы х в мм, 8 - длина границы у в мм, 9 - количество ячеек по x, 10 - количество ячеек по y, 11 - название обрабатываемого файла
     #12 - толщина центрального креста, 13 - толщина крестов через каждый сантиметр, 14 - толщина крестов через каждые 5 мм, 15 - отрисовывать ли сетку на результирующих изображениях

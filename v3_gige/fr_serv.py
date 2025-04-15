@@ -149,11 +149,13 @@ def get_frames_list():
 
         rez_arr = []
         for i in flist:
-            if i[-5:] == '0.txt':
-                if i[:3] !='gig':
-                    continue
-
-                rez_arr.append(i)
+            if i[-3:] != 'txt':
+                continue
+            if not i[len(i)-5].isnumeric():
+                continue
+            if i[1:4] !='ic_':
+                continue
+            rez_arr.append(i)
         rez_arr.sort(reverse=True)
         # logging.info(" Get frame list result\n%s"%(str(rez_arr)))
         rr = str(rez_arr).replace('\'', '\"')
@@ -217,7 +219,8 @@ def get_file():
     #print("connect 1" + inprm)
     try:
         file_name = params['file']
-        ff = open('images/'+file_name, 'r',encoding='utf-8')
+        # ff = open('images/'+file_name, 'r',encoding='utf-8')
+        ff = open('images/'+file_name, 'rb')
         bin = ff.read()
         resp = make_response(bin, 200)
     except Exception as e:
@@ -350,17 +353,17 @@ def process_shots():
                 process_shot(kx, ky, xl, yu, xr, yd, x_len, y_len, x_tab, y_tab, fname+'.bmp' , w1, w2, w3,'' )
                 # aaa()
                 files_ok.append(i)    
-                #print('processed(%.1f sec) %s'%(time.time()-time0,i))
+                print('processed(%.1f sec) %s'%(time.time()-time0,i))
             time.sleep(1)
         except Exception as e:
             exc_type, exc_value, exc_traceback = sys.exc_info()
-            #print("*** print_tb:")
+            print("*** print_tb:")
             traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
             #print("*** format_exc, first and last line:")
             res_data = traceback.format_exc().splitlines()
-            #print(res_data)
+            print(res_data)
 
-
+# process_shots()
 pro_shots  = threading.Thread(target=process_shots, args=(),daemon=False)
 pro_shots.start()
 app.run(debug=True, host="0.0.0.0", port=88)

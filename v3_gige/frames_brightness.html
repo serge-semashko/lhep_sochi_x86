@@ -7,7 +7,7 @@
 
       .content .left {
         float: right;
-        width: 25%;
+        width: 15%;
         color: #ffffff;
         background-color: #303030;
       }
@@ -20,7 +20,7 @@
       }
       .right {
         float: left;
-        width: 60%;
+        width: 85%;
         background-color: #444444;
       }
     </style>
@@ -33,23 +33,36 @@
 
     <div class="content">
       <div class="left">
-        <h1>
+        <h2 style="color: white" id="last_name">aaaaa</h2>
+        <!-- <h3>
           <a style="color: white" target="_blank" href="/get_all_shots"
             >Загрузить всю историю</a
           >
-        </h1>
+        </h3> -->
 
-        <div>
-          <input type="text" id="br" />
-          <input type="button" value="Яркость" onclick="sendBr()" /> <br />
-          <i id="last_name">aaaaa</i>
-        </div>
 
         <!-- <div> <input type = "button" value = "???? ???" onclick = "delFr()"></div> -->
         <div id="rezult" style="height: 900px; overflow-y: auto"></div>
       </div>
 
       <div class="rigth" style="background-color: #202020; border: 1px black">
+    <div
+      style="
+        background: #2a7b9b;
+        width: 400px;
+        height: 30px;
+        background: linear-gradient(
+          90deg,
+          hsl(240deg 100% 40%) 0%,
+          hsl(180deg 100% 60%) 25%,
+          hsl(120deg 100% 60%) 50%,
+          hsl(60deg 100% 60%) 75%,
+          hsl(0deg 100% 60%) 100%
+        );
+      "
+    > 0%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;75%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100%</div>
+    </div>
+
         <table>
           <tr>
             <td>
@@ -235,8 +248,9 @@
             "-1mm-bar.png";
 
           //       document.getElementById('last_jpg').update();
-          document.getElementById("last_name").innerHTML = lastsrc[1];
           load_table(lastsrc.split(".")[0]);
+          let ts = lastsrc.split(".")[0].split('_');
+          document.getElementById("last_name").innerHTML =ts[1]+'/'+ts[2] +'/'+ts[3]+' '+' '+ts[4][0]+ts[4][1]+':'+ts[4][2]+ts[4][3]+':'+ts[4][4]+ts[4][5];
         });
     }
 
