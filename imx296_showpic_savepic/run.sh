@@ -1,1 +1,2 @@
-python s296.py %1 %2 %3
+cd /home/ubuntu/imx296_showpic_savepic
+python s296.py 

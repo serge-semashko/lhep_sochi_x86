@@ -35,7 +35,7 @@ def live_camera_view():
         while True:
             # Capture an image (in numpy array format)
             frame = picam2.capture_array()
-
+            frame = cv2.resize(frame,None,fx=0.5,fy=0.5)
             # Convert the image to BGR format (the format used by OpenCV)
             frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
